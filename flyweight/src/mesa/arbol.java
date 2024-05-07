@@ -1,6 +1,6 @@
 package mesa;
 
-// Clase para representar un árbol
+// Clase para representar un arbol
 class Arbol {
     private int alto;
     private int ancho;
@@ -13,17 +13,17 @@ class Arbol {
         this.color = color;
     }
 
-    // Método para obtener la altura del árbol
+    // Metodo para obtener la altura del arbol
     public int obtenerAlto() {
         return alto;
     }
 
-    // Método para obtener el ancho del árbol
+    // Metodo para obtener el ancho del arbol
     public int obtenerAncho() {
         return ancho;
     }
 
-    // Método para obtener el color del árbol
+    // Metodo para obtener el color del arbol
     public String obtenerColor() {
         return color;
     }

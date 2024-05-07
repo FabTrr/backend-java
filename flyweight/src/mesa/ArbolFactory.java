@@ -1,11 +1,11 @@
 package mesa;
 import java.util.HashMap;
 
-// Clase para gestionar la creación y almacenamiento de árboles
+// Clase para gestionar la creacion y almacenamiento de arboles
 class ArbolFactory {
     private static HashMap<String, Arbol> arboles = new HashMap<>();
 
-    // Método para obtener un árbol existente o crear uno nuevo
+    // Metodo para obtener un arbol existente o crear uno nuevo
     public static Arbol obtenerArbol(String tipo) {
         Arbol arbol = arboles.get(tipo);
 
