@@ -13,18 +13,28 @@ class Arbol {
         this.color = color;
     }
 
-    // Metodo para obtener la altura del arbol
-    public int obtenerAlto() {
+    // Getters y setters
+    public int getAlto() {
         return alto;
     }
 
-    // Metodo para obtener el ancho del arbol
-    public int obtenerAncho() {
+    public void setAlto(int alto) {
+        this.alto = alto;
+    }
+
+    public int getAncho() {
         return ancho;
     }
 
-    // Metodo para obtener el color del arbol
-    public String obtenerColor() {
+    public void setAncho(int ancho) {
+        this.ancho = ancho;
+    }
+
+    public String getColor() {
         return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

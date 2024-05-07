@@ -1,6 +1,6 @@
 package mesa;
 
-public class main {
+public class Bosque {
     public static void main(String[] args) {
         Runtime runtime = Runtime.getRuntime();
 
