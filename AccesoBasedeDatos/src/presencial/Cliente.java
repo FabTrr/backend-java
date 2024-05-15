@@ -1,11 +1,15 @@
 package presencial;
 
+import org.apache.log4j.Logger;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class Cliente {
+    //loggers en puntos clave, no utilizar excesivamente
+    private static final Logger logger= Logger.getLogger(Cliente.class);
     public static void main(String[] args) {
         //crear conexion
         Connection connection = null;
@@ -17,6 +21,7 @@ public class Cliente {
                     "(ID INT PRIMARY KEY, NOMBRE VARCHAR(100) NOT NULL, TIPO VARCHAR(100) NOT NULL)");
             //insert 3 animales
             statement.execute("INSERT INTO ANIMALES VALUES(1,'PEDRO','PERRO'),(2,'CHISPAS','CONEJO'),(3,'TITI','GATO')");
+            logger.info("Se insertaron 3 animales en la tabla");
             //select todos los animales
             ResultSet rs= statement.executeQuery("SELECT * FROM ANIMALES");
             //recorrer para traer los datos en un ciclo while
@@ -25,7 +30,9 @@ public class Cliente {
             }
             System.out.println("***************************************************************");
             //eliminar un registro
-            statement.execute("DELETE FROM ANIMALES WHERE ID=1");//select todos los animales
+            statement.execute("DELETE FROM ANIMALES WHERE ID=1");
+            logger.warn("advertencia: se elimino el registro 1");
+            //select todos los animales
             ResultSet rs1= statement.executeQuery("SELECT * FROM ANIMALES");
             //recorrer con while para traer los datos
             while(rs1.next()){
