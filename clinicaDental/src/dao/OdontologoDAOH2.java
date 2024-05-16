@@ -25,7 +25,7 @@ public class OdontologoDAOH2 implements iDao<Odontologo> {
             psInsert.execute();
 
             ResultSet rs = psInsert.getGeneratedKeys();
-            if (rs.next()) {
+            while (rs.next()) {
                 odontologo.setId(rs.getInt(1));
             }
             logger.info("Odontologo guardado con exito");
@@ -62,7 +62,7 @@ public class OdontologoDAOH2 implements iDao<Odontologo> {
              PreparedStatement psSelect = connection.prepareStatement(SQL_SELECT_BY_ID)) {
             psSelect.setInt(1, id);
             ResultSet rs = psSelect.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 odontologo = new Odontologo(
                         rs.getInt("ID"),
                         rs.getString("NUMERO_MATRICULA"),

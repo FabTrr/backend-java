@@ -225,3 +225,20 @@ Database may be already in use: "C:/Users/Fabiana/C2ClinicaOdontologica.mv.db". 
 [2024-05-16 00:50:17] [ INFO ] [OdontologoDAOH2:31] Odontólogo guardado con éxito
 [2024-05-16 00:50:17] [ INFO ] [OdontologoDAOH2:31] Odontólogo guardado con éxito
 [2024-05-16 00:50:17] [ INFO ] [BD:35] tabla creada con exito
+[2024-05-16 01:04:34] [ INFO ] [BD:35] tabla creada con exito
+[2024-05-16 01:04:34] [ INFO ] [PacienteDAOH2:26] inicando la operacion de guardado
+[2024-05-16 01:04:34] [ WARN ] [PacienteDAOH2:44] Cannot invoke "java.lang.Integer.intValue()" because the return value of "model.Domicilio.getId()" is null
+[2024-05-16 01:04:34] [ INFO ] [PacienteDAOH2:26] inicando la operacion de guardado
+[2024-05-16 01:04:34] [ WARN ] [PacienteDAOH2:44] Cannot invoke "java.lang.Integer.intValue()" because the return value of "model.Domicilio.getId()" is null
+[2024-05-16 01:04:34] [ INFO ] [PacienteDAOH2:51] iniciando la busqueda de un paciente por id: null
+[2024-05-16 01:04:34] [ WARN ] [PacienteDAOH2:69] Cannot invoke "java.lang.Integer.intValue()" because "id" is null
+[2024-05-16 01:04:34] [ INFO ] [OdontologoDAOH2:31] Odontologo guardado con exito
+[2024-05-16 01:05:22] [ INFO ] [BD:35] tabla creada con exito
+[2024-05-16 01:05:22] [ INFO ] [PacienteDAOH2:26] inicando la operacion de guardado
+[2024-05-16 01:05:22] [ WARN ] [PacienteDAOH2:44] Cannot invoke "java.lang.Integer.intValue()" because the return value of "model.Domicilio.getId()" is null
+[2024-05-16 01:05:22] [ INFO ] [PacienteDAOH2:26] inicando la operacion de guardado
+[2024-05-16 01:05:22] [ WARN ] [PacienteDAOH2:44] Cannot invoke "java.lang.Integer.intValue()" because the return value of "model.Domicilio.getId()" is null
+[2024-05-16 01:05:22] [ INFO ] [PacienteDAOH2:51] iniciando la busqueda de un paciente por id: null
+[2024-05-16 01:05:22] [ WARN ] [PacienteDAOH2:69] Cannot invoke "java.lang.Integer.intValue()" because "id" is null
+[2024-05-16 01:05:22] [ INFO ] [OdontologoDAOH2:31] Odontologo guardado con exito
+[2024-05-16 01:05:22] [ INFO ] [OdontologoDAOH2:31] Odontologo guardado con exito

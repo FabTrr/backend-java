@@ -37,5 +37,6 @@ public class Cliente {
 
         OdontologoService odontologoService = new OdontologoService();
         odontologoService.guardarOdontologo(odontologo1);
+        odontologoService.guardarOdontologo(odontologo2);
     }
 }
