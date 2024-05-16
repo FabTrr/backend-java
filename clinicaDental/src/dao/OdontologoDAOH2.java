@@ -28,9 +28,9 @@ public class OdontologoDAOH2 implements iDao<Odontologo> {
             if (rs.next()) {
                 odontologo.setId(rs.getInt(1));
             }
-            logger.info("Odontólogo guardado con éxito");
+            logger.info("Odontologo guardado con exito");
         } catch (Exception e) {
-            logger.error("Error al guardar el odontólogo", e);
+            logger.error("Error al guardar el odontologo", e);
         }
         return odontologo;
     }
@@ -71,7 +71,7 @@ public class OdontologoDAOH2 implements iDao<Odontologo> {
                 );
             }
         } catch (Exception e) {
-            logger.error("Error al buscar el odontólogo", e);
+            logger.error("Error al buscar el odontologo", e);
         }
         return odontologo;
     }
@@ -82,9 +82,9 @@ public class OdontologoDAOH2 implements iDao<Odontologo> {
              PreparedStatement psDelete = connection.prepareStatement(SQL_DELETE)) {
             psDelete.setInt(1, id);
             psDelete.execute();
-            logger.info("Odontólogo eliminado con éxito");
+            logger.info("Odontologo eliminado con exito");
         } catch (Exception e) {
-            logger.error("Error al eliminar el odontólogo", e);
+            logger.error("Error al eliminar el odontologo", e);
         }
     }
 
@@ -104,7 +104,7 @@ public class OdontologoDAOH2 implements iDao<Odontologo> {
                 odontologos.add(odontologo);
             }
         } catch (SQLException e) {
-            logger.error("Error al listar los odontólogos", e);
+            logger.error("Error al listar los odontologos", e);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
