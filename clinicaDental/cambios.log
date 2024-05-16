@@ -1,0 +1,103 @@
+[2024-05-15 23:09:51] [ INFO ] [BD:30] tabla creada con exito
+[2024-05-15 23:09:51] [ INFO ] [PacienteDAOH2:48] iniciando la busqueda de un paciente por id: 1
+[2024-05-16 00:05:46] [ INFO ] [BD:38] tabla creada con exito
+[2024-05-16 00:05:46] [ INFO ] [PacienteDAOH2:24] inicando la operacion de guardado
+[2024-05-16 00:05:46] [ WARN ] [PacienteDAOH2:42] Cannot invoke "java.lang.Integer.intValue()" because the return value of "model.Domicilio.getId()" is null
+[2024-05-16 00:05:46] [ INFO ] [PacienteDAOH2:24] inicando la operacion de guardado
+[2024-05-16 00:05:46] [ WARN ] [PacienteDAOH2:42] Cannot invoke "java.lang.Integer.intValue()" because the return value of "model.Domicilio.getId()" is null
+[2024-05-16 00:05:46] [ INFO ] [PacienteDAOH2:49] iniciando la busqueda de un paciente por id: null
+[2024-05-16 00:05:46] [ WARN ] [PacienteDAOH2:67] Cannot invoke "java.lang.Integer.intValue()" because "id" is null
+[2024-05-16 00:08:06] [ INFO ] [BD:38] tabla creada con exito
+[2024-05-16 00:08:06] [ INFO ] [PacienteDAOH2:24] inicando la operacion de guardado
+[2024-05-16 00:08:06] [ WARN ] [PacienteDAOH2:42] Cannot invoke "java.lang.Integer.intValue()" because the return value of "model.Domicilio.getId()" is null
+[2024-05-16 00:08:06] [ INFO ] [PacienteDAOH2:24] inicando la operacion de guardado
+[2024-05-16 00:08:06] [ WARN ] [PacienteDAOH2:42] Cannot invoke "java.lang.Integer.intValue()" because the return value of "model.Domicilio.getId()" is null
+[2024-05-16 00:08:06] [ INFO ] [PacienteDAOH2:49] iniciando la busqueda de un paciente por id: null
+[2024-05-16 00:08:06] [ WARN ] [PacienteDAOH2:67] Cannot invoke "java.lang.Integer.intValue()" because "id" is null
+[2024-05-16 00:08:06] [ ERROR] [OdontologoDAOH2:33] Error al guardar el odontólogo
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ODONTOLOGOS" no encontrada
+Table "ODONTOLOGOS" not found; SQL statement:
+INSERT INTO ODONTOLOGOS (NUMERO_MATRICULA, NOMBRE, APELLIDO) VALUES (?, ?, ?) [42102-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.Parser.getTableOrViewNotFoundDbException(Parser.java:8064)
+	at org.h2.command.Parser.getTableOrViewNotFoundDbException(Parser.java:8035)
+	at org.h2.command.Parser.readTableOrView(Parser.java:8024)
+	at org.h2.command.Parser.readTableOrView(Parser.java:7990)
+	at org.h2.command.Parser.parseInsert(Parser.java:1540)
+	at org.h2.command.Parser.parsePrepared(Parser.java:719)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:1094)
+	at dao.OdontologoDAOH2.guardar(OdontologoDAOH2.java:20)
+	at dao.OdontologoDAOH2.guardar(OdontologoDAOH2.java:10)
+	at service.OdontologoService.guardarOdontologo(OdontologoService.java:17)
+	at Cliente.main(Cliente.java:39)
+[2024-05-16 00:10:13] [ INFO ] [BD:38] tabla creada con exito
+[2024-05-16 00:10:13] [ INFO ] [PacienteDAOH2:26] inicando la operacion de guardado
+[2024-05-16 00:10:13] [ WARN ] [PacienteDAOH2:44] Cannot invoke "java.lang.Integer.intValue()" because the return value of "model.Domicilio.getId()" is null
+[2024-05-16 00:10:13] [ INFO ] [PacienteDAOH2:26] inicando la operacion de guardado
+[2024-05-16 00:10:13] [ WARN ] [PacienteDAOH2:44] Cannot invoke "java.lang.Integer.intValue()" because the return value of "model.Domicilio.getId()" is null
+[2024-05-16 00:10:13] [ INFO ] [PacienteDAOH2:51] iniciando la busqueda de un paciente por id: null
+[2024-05-16 00:10:13] [ WARN ] [PacienteDAOH2:69] Cannot invoke "java.lang.Integer.intValue()" because "id" is null
+[2024-05-16 00:10:13] [ ERROR] [OdontologoDAOH2:33] Error al guardar el odontólogo
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ODONTOLOGOS" no encontrada
+Table "ODONTOLOGOS" not found; SQL statement:
+INSERT INTO ODONTOLOGOS (NUMERO_MATRICULA, NOMBRE, APELLIDO) VALUES (?, ?, ?) [42102-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.Parser.getTableOrViewNotFoundDbException(Parser.java:8064)
+	at org.h2.command.Parser.getTableOrViewNotFoundDbException(Parser.java:8035)
+	at org.h2.command.Parser.readTableOrView(Parser.java:8024)
+	at org.h2.command.Parser.readTableOrView(Parser.java:7990)
+	at org.h2.command.Parser.parseInsert(Parser.java:1540)
+	at org.h2.command.Parser.parsePrepared(Parser.java:719)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:1094)
+	at dao.OdontologoDAOH2.guardar(OdontologoDAOH2.java:20)
+	at dao.OdontologoDAOH2.guardar(OdontologoDAOH2.java:10)
+	at service.OdontologoService.guardarOdontologo(OdontologoService.java:17)
+	at Cliente.main(Cliente.java:39)
+[2024-05-16 00:39:20] [ INFO ] [BD:35] tabla creada con exito
+[2024-05-16 00:39:20] [ INFO ] [PacienteDAOH2:26] inicando la operacion de guardado
+[2024-05-16 00:39:20] [ WARN ] [PacienteDAOH2:44] Cannot invoke "java.lang.Integer.intValue()" because the return value of "model.Domicilio.getId()" is null
+[2024-05-16 00:39:20] [ INFO ] [PacienteDAOH2:26] inicando la operacion de guardado
+[2024-05-16 00:39:20] [ WARN ] [PacienteDAOH2:44] Cannot invoke "java.lang.Integer.intValue()" because the return value of "model.Domicilio.getId()" is null
+[2024-05-16 00:39:20] [ INFO ] [PacienteDAOH2:51] iniciando la busqueda de un paciente por id: null
+[2024-05-16 00:39:20] [ WARN ] [PacienteDAOH2:69] Cannot invoke "java.lang.Integer.intValue()" because "id" is null
+[2024-05-16 00:39:20] [ INFO ] [OdontologoDAOH2:31] Odontólogo guardado con éxito
+[2024-05-16 00:39:30] [ INFO ] [BD:35] tabla creada con exito
+[2024-05-16 00:39:30] [ INFO ] [OdontologoDAOH2:31] Odontólogo guardado con éxito
+[2024-05-16 00:39:30] [ INFO ] [OdontologoDAOH2:31] Odontólogo guardado con éxito
+[2024-05-16 00:39:30] [ INFO ] [BD:35] tabla creada con exito
+[2024-05-16 00:41:04] [ INFO ] [BD:35] tabla creada con exito
+[2024-05-16 00:41:04] [ INFO ] [PacienteDAOH2:26] inicando la operacion de guardado
+[2024-05-16 00:41:04] [ WARN ] [PacienteDAOH2:44] Cannot invoke "java.lang.Integer.intValue()" because the return value of "model.Domicilio.getId()" is null
+[2024-05-16 00:41:04] [ INFO ] [PacienteDAOH2:26] inicando la operacion de guardado
+[2024-05-16 00:41:04] [ WARN ] [PacienteDAOH2:44] Cannot invoke "java.lang.Integer.intValue()" because the return value of "model.Domicilio.getId()" is null
+[2024-05-16 00:41:04] [ INFO ] [PacienteDAOH2:51] iniciando la busqueda de un paciente por id: null
+[2024-05-16 00:41:04] [ WARN ] [PacienteDAOH2:69] Cannot invoke "java.lang.Integer.intValue()" because "id" is null
+[2024-05-16 00:41:04] [ INFO ] [OdontologoDAOH2:31] Odontólogo guardado con éxito
+[2024-05-16 00:41:17] [ INFO ] [BD:35] tabla creada con exito
+[2024-05-16 00:41:17] [ INFO ] [PacienteDAOH2:26] inicando la operacion de guardado
+[2024-05-16 00:41:17] [ WARN ] [PacienteDAOH2:44] Cannot invoke "java.lang.Integer.intValue()" because the return value of "model.Domicilio.getId()" is null
+[2024-05-16 00:41:17] [ INFO ] [PacienteDAOH2:26] inicando la operacion de guardado
+[2024-05-16 00:41:17] [ WARN ] [PacienteDAOH2:44] Cannot invoke "java.lang.Integer.intValue()" because the return value of "model.Domicilio.getId()" is null
+[2024-05-16 00:41:17] [ INFO ] [PacienteDAOH2:51] iniciando la busqueda de un paciente por id: null
+[2024-05-16 00:41:18] [ WARN ] [PacienteDAOH2:69] Cannot invoke "java.lang.Integer.intValue()" because "id" is null
+[2024-05-16 00:41:18] [ INFO ] [OdontologoDAOH2:31] Odontólogo guardado con éxito
