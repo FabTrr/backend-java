@@ -1,2 +1,0 @@
-# DHSpringBoot
-Proyecto Clinica Odontologica
