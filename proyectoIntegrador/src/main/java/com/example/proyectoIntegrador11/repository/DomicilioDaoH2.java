@@ -13,14 +13,19 @@ import java.util.Map;
 
 public class DomicilioDaoH2 implements iDao<Domicilio>{
     private static final Logger logger = Logger.getLogger(DomicilioDaoH2.class);
-    private static final String SQL_SELECT_ONE="SELECT * FROM DOMICILIO WHERE ID=?";
+    private static final String SQL_SELECT_ONE = "SELECT * FROM DOMICILIO WHERE ID=?";
     private static final String SQL_INSERT = "INSERT INTO DOMICILIO (CALLE, NUMERO, LOCALIDAD, PROVINCIA) VALUES(?, ?, ?, ?)";
-    private static final String SQL_UPDATE = "UPDATE DOMICILIO SET CALLE=?, NUMERO=?, LOCALIDAD=?, PROVINCIA=? WHERE ID = ?";
-    private static final String SQL_DELETE = "DELETE FROM DOMICILIO WHERE ID = ?";
+    private static final String SQL_UPDATE = "UPDATE DOMICILIO SET CALLE=?, NUMERO=?, LOCALIDAD=?, PROVINCIA=? WHERE ID=?";
+    private static final String SQL_DELETE = "DELETE FROM DOMICILIO WHERE ID=?";
     private static final String SQL_SELECT_ALL = "SELECT * FROM DOMICILIO";
 
     @Override
     public Domicilio guardar(Domicilio domicilio) {
+        if (domicilio == null) {
+            logger.error("El objeto Domicilio es null");
+            return null;
+        }
+
         Connection connection = null;
         try {
             connection = BD.getConnection();
@@ -31,12 +36,20 @@ public class DomicilioDaoH2 implements iDao<Domicilio>{
             psInsert.setString(4, domicilio.getProvincia());
             psInsert.execute();
             ResultSet resultSet = psInsert.getGeneratedKeys();
-            while (resultSet.next()) {
+            if (resultSet.next()) {
                 domicilio.setId(resultSet.getInt(1));
-                logger.info("Domicilio guardado exitosamente");
+                logger.info("Domicilio guardado exitosamente con ID: " + domicilio.getId());
             }
         } catch (Exception e) {
-            logger.error(e.getMessage());
+            logger.error("Error al guardar el domicilio: " + e.getMessage());
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (Exception e) {
+                    logger.error("Error al cerrar la conexión: " + e.getMessage());
+                }
+            }
         }
         return domicilio;
     }

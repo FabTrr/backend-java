@@ -429,3 +429,284 @@ INSERT INTO PACIENTES (NOMBRE, APELLIDO, CEDULA, FECHA_INGRESO, DOMICILIO_ID, EM
 [2024-05-30 21:35:37] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
 [2024-05-30 21:35:37] [ INFO ] [PacienteDAOH2:63] Paciente encontrado!
 [2024-05-30 21:35:37] [ WARN ] [PacienteDAOH2:101] Paciente eliminado!
+[2024-06-03 14:29:56] [ INFO ] [BD:31] tabla creada con exito
+[2024-06-03 14:29:56] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-03 14:29:56] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-03 14:29:56] [ INFO ] [PacienteDAOH2:23] iniciando la operacion de guardado
+[2024-06-03 14:29:56] [ INFO ] [DomicilioDaoH2:36] Domicilio guardado exitosamente
+[2024-06-03 14:29:56] [ INFO ] [PacienteDAOH2:40] Paciente guardado exitosamente!
+[2024-06-03 15:21:48] [ INFO ] [BD:31] tabla creada con exito
+[2024-06-03 15:21:48] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-03 15:21:48] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-03 15:21:48] [ INFO ] [PacienteDAOH2:23] iniciando la operacion de guardado
+[2024-06-03 15:21:48] [ INFO ] [DomicilioDaoH2:36] Domicilio guardado exitosamente
+[2024-06-03 15:21:48] [ INFO ] [PacienteDAOH2:40] Paciente guardado exitosamente!
+[2024-06-03 15:22:01] [ INFO ] [OdontologoDaoH2:103] Odontologos buscados exitosamente!
+[2024-06-03 15:22:08] [ INFO ] [OdontologoDaoH2:46] iniciando la busqueda de un odontologo por id: 2
+[2024-06-03 15:22:08] [ INFO ] [OdontologoDaoH2:54] Odontologo Buscado exitosamente!
+[2024-06-03 15:22:08] [ WARN ] [OdontologoDaoH2:89] Odontologo eliminado!
+[2024-06-03 15:22:11] [ INFO ] [OdontologoDaoH2:46] iniciando la busqueda de un odontologo por id: 1
+[2024-06-03 15:22:11] [ INFO ] [OdontologoDaoH2:54] Odontologo Buscado exitosamente!
+[2024-06-03 15:22:11] [ WARN ] [OdontologoDaoH2:89] Odontologo eliminado!
+[2024-06-03 15:24:52] [ INFO ] [OdontologoDaoH2:103] Odontologos buscados exitosamente!
+[2024-06-04 18:16:43] [ ERROR] [BD:34] La base de datos puede que ya esté siendo utilizada: "C:/Users/Fabiana/C2ClinicaOdontologica.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/Fabiana/C2ClinicaOdontologica.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+[2024-06-04 18:16:43] [ ERROR] [OdontologoDaoH2:39] La base de datos puede que ya esté siendo utilizada: "C:/Users/Fabiana/C2ClinicaOdontologica.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/Fabiana/C2ClinicaOdontologica.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+[2024-06-04 18:16:43] [ ERROR] [OdontologoDaoH2:39] La base de datos puede que ya esté siendo utilizada: "C:/Users/Fabiana/C2ClinicaOdontologica.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/Fabiana/C2ClinicaOdontologica.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+[2024-06-04 18:16:43] [ INFO ] [PacienteDAOH2:23] iniciando la operacion de guardado
+[2024-06-04 18:16:43] [ ERROR] [DomicilioDaoH2:39] La base de datos puede que ya esté siendo utilizada: "C:/Users/Fabiana/C2ClinicaOdontologica.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/Fabiana/C2ClinicaOdontologica.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+[2024-06-04 18:16:43] [ ERROR] [PacienteDAOH2:43] La base de datos puede que ya esté siendo utilizada: "C:/Users/Fabiana/C2ClinicaOdontologica.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/Fabiana/C2ClinicaOdontologica.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+[2024-06-04 18:17:13] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:17:13] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:17:13] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:17:13] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:17:13] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:17:13] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:17:13] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:17:13] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:17:13] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:17:13] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:17:13] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:17:13] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:17:13] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:17:13] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:17:13] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:17:13] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:17:28] [ INFO ] [BD:31] tabla creada con exito
+[2024-06-04 18:17:28] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-04 18:17:28] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-04 18:17:28] [ INFO ] [PacienteDAOH2:23] iniciando la operacion de guardado
+[2024-06-04 18:17:28] [ INFO ] [DomicilioDaoH2:36] Domicilio guardado exitosamente
+[2024-06-04 18:17:28] [ INFO ] [PacienteDAOH2:40] Paciente guardado exitosamente!
+[2024-06-04 18:17:39] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:17:39] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:17:39] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:17:39] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:17:39] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:17:39] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:17:39] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:17:39] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:17:39] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:17:39] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:17:39] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:17:39] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:17:39] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:17:39] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:17:39] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:17:39] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:26:47] [ INFO ] [PacienteDAOH2:23] iniciando la operacion de guardado
+[2024-06-04 18:26:47] [ ERROR] [DomicilioDaoH2:39] Cannot invoke "com.example.proyectoIntegrador11.entity.Domicilio.getCalle()" because "domicilio" is null
+[2024-06-04 18:26:47] [ ERROR] [PacienteDAOH2:43] Cannot invoke "com.example.proyectoIntegrador11.entity.Domicilio.getId()" because "domicilio" is null
+[2024-06-04 18:26:52] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:26:52] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:26:52] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:26:52] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:26:52] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:26:52] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:26:52] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:26:52] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:26:52] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:26:52] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:26:52] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:26:52] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:26:52] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:26:52] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:26:52] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:26:52] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:28:01] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-04 18:28:08] [ INFO ] [OdontologoDaoH2:103] Odontologos buscados exitosamente!
+[2024-06-04 18:28:19] [ INFO ] [PacienteDAOH2:23] iniciando la operacion de guardado
+[2024-06-04 18:28:19] [ ERROR] [DomicilioDaoH2:39] Cannot invoke "com.example.proyectoIntegrador11.entity.Domicilio.getCalle()" because "domicilio" is null
+[2024-06-04 18:28:19] [ ERROR] [PacienteDAOH2:43] Cannot invoke "com.example.proyectoIntegrador11.entity.Domicilio.getId()" because "domicilio" is null
+[2024-06-04 18:28:25] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:28:25] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:28:25] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:28:25] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:28:25] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:28:25] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:28:25] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:28:25] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:28:25] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:28:25] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:28:25] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:28:25] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:28:25] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:28:25] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:28:25] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:28:25] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:34:39] [ INFO ] [BD:31] tabla creada con exito
+[2024-06-04 18:34:39] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-04 18:34:39] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-04 18:34:39] [ INFO ] [PacienteDAOH2:23] iniciando la operacion de guardado
+[2024-06-04 18:34:39] [ INFO ] [DomicilioDaoH2:36] Domicilio guardado exitosamente
+[2024-06-04 18:34:39] [ INFO ] [PacienteDAOH2:40] Paciente guardado exitosamente!
+[2024-06-04 18:34:59] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:34:59] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:34:59] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:34:59] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:34:59] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:34:59] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:34:59] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:34:59] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:34:59] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:34:59] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:34:59] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:34:59] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:34:59] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:34:59] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:34:59] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:34:59] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:36:00] [ INFO ] [PacienteDAOH2:23] iniciando la operacion de guardado
+[2024-06-04 18:36:00] [ ERROR] [DomicilioDaoH2:39] Cannot invoke "com.example.proyectoIntegrador11.entity.Domicilio.getCalle()" because "domicilio" is null
+[2024-06-04 18:36:00] [ ERROR] [PacienteDAOH2:43] Cannot invoke "com.example.proyectoIntegrador11.entity.Domicilio.getId()" because "domicilio" is null
+[2024-06-04 18:36:26] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:36:26] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:36:26] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:36:26] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:36:26] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:36:26] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:36:26] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:36:26] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:36:26] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:36:26] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:36:26] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:36:26] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:36:26] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:36:26] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:36:26] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:36:26] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:38:37] [ INFO ] [BD:31] tabla creada con exito
+[2024-06-04 18:38:37] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-04 18:38:37] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-04 18:38:37] [ INFO ] [PacienteDAOH2:23] iniciando la operacion de guardado
+[2024-06-04 18:38:37] [ INFO ] [DomicilioDaoH2:36] Domicilio guardado exitosamente
+[2024-06-04 18:38:37] [ INFO ] [PacienteDAOH2:40] Paciente guardado exitosamente!
+[2024-06-04 18:39:04] [ INFO ] [PacienteDAOH2:23] iniciando la operacion de guardado
+[2024-06-04 18:39:04] [ ERROR] [DomicilioDaoH2:39] Cannot invoke "com.example.proyectoIntegrador11.entity.Domicilio.getCalle()" because "domicilio" is null
+[2024-06-04 18:39:04] [ ERROR] [PacienteDAOH2:43] Cannot invoke "com.example.proyectoIntegrador11.entity.Domicilio.getId()" because "domicilio" is null
+[2024-06-04 18:39:12] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:39:12] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:39:12] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:39:12] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:39:12] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:39:12] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:39:12] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:39:12] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:39:12] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:39:12] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:39:12] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:39:12] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:39:12] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:39:12] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:39:12] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:39:12] [ INFO ] [DomicilioDaoH2:46] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:39:48] [ INFO ] [PacienteDAOH2:23] iniciando la operacion de guardado
+[2024-06-04 18:39:48] [ ERROR] [DomicilioDaoH2:39] Cannot invoke "com.example.proyectoIntegrador11.entity.Domicilio.getCalle()" because "domicilio" is null
+[2024-06-04 18:39:48] [ ERROR] [PacienteDAOH2:43] Cannot invoke "com.example.proyectoIntegrador11.entity.Domicilio.getId()" because "domicilio" is null
+[2024-06-04 18:44:16] [ INFO ] [BD:31] tabla creada con exito
+[2024-06-04 18:44:16] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-04 18:44:16] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-04 18:44:16] [ INFO ] [PacienteDAOH2:23] Iniciando la operación de guardado del paciente: Carla
+[2024-06-04 18:44:16] [ INFO ] [DomicilioDaoH2:36] Domicilio guardado exitosamente con ID: 3
+[2024-06-04 18:44:16] [ INFO ] [PacienteDAOH2:43] Paciente guardado exitosamente con ID: 3
+[2024-06-04 18:44:36] [ INFO ] [PacienteDAOH2:127] Pacientes buscados exitosamente
+[2024-06-04 18:44:36] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:44:36] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:44:36] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:44:36] [ INFO ] [PacienteDAOH2:127] Pacientes buscados exitosamente
+[2024-06-04 18:44:36] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:44:36] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:44:36] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:44:36] [ INFO ] [PacienteDAOH2:127] Pacientes buscados exitosamente
+[2024-06-04 18:44:36] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:44:36] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:44:36] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:44:36] [ INFO ] [PacienteDAOH2:127] Pacientes buscados exitosamente
+[2024-06-04 18:44:36] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:44:36] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:44:36] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:44:55] [ INFO ] [PacienteDAOH2:23] Iniciando la operación de guardado del paciente: Nuevo
+[2024-06-04 18:44:55] [ ERROR] [DomicilioDaoH2:39] Error al guardar el domicilio: Cannot invoke "com.example.proyectoIntegrador11.entity.Domicilio.getCalle()" because "domicilio" is null
+[2024-06-04 18:44:55] [ ERROR] [PacienteDAOH2:46] Error al guardar el paciente: Error al guardar el domicilio del paciente.
+[2024-06-04 18:45:00] [ INFO ] [PacienteDAOH2:127] Pacientes buscados exitosamente
+[2024-06-04 18:45:00] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:45:00] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:45:00] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:45:00] [ INFO ] [PacienteDAOH2:127] Pacientes buscados exitosamente
+[2024-06-04 18:45:00] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:45:00] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:45:00] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:45:00] [ INFO ] [PacienteDAOH2:127] Pacientes buscados exitosamente
+[2024-06-04 18:45:00] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:45:00] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:45:00] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:45:00] [ INFO ] [PacienteDAOH2:127] Pacientes buscados exitosamente
+[2024-06-04 18:45:00] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:45:00] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:45:00] [ INFO ] [DomicilioDaoH2:54] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:46:33] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-04 18:46:37] [ INFO ] [OdontologoDaoH2:103] Odontologos buscados exitosamente!
+[2024-06-04 18:47:50] [ INFO ] [BD:31] tabla creada con exito
+[2024-06-04 18:47:50] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-04 18:47:50] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-04 18:47:50] [ INFO ] [PacienteDAOH2:23] Iniciando la operación de guardado del paciente: Carla
+[2024-06-04 18:47:50] [ INFO ] [DomicilioDaoH2:41] Domicilio guardado exitosamente con ID: 3
+[2024-06-04 18:47:50] [ INFO ] [PacienteDAOH2:43] Paciente guardado exitosamente con ID: 3
+[2024-06-04 18:48:36] [ INFO ] [PacienteDAOH2:23] Iniciando la operación de guardado del paciente: Nuevo
+[2024-06-04 18:48:36] [ ERROR] [DomicilioDaoH2:25] El objeto Domicilio es null
+[2024-06-04 18:48:36] [ ERROR] [PacienteDAOH2:46] Error al guardar el paciente: Error al guardar el domicilio del paciente.
+[2024-06-04 18:49:39] [ INFO ] [BD:31] tabla creada con exito
+[2024-06-04 18:49:39] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-04 18:49:39] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-04 18:49:39] [ INFO ] [PacienteDAOH2:23] Iniciando la operación de guardado del paciente: Carla
+[2024-06-04 18:49:39] [ INFO ] [DomicilioDaoH2:41] Domicilio guardado exitosamente con ID: 3
+[2024-06-04 18:49:39] [ INFO ] [PacienteDAOH2:49] Paciente guardado exitosamente con ID: 3
+[2024-06-04 18:50:05] [ INFO ] [PacienteDAOH2:23] Iniciando la operación de guardado del paciente: 
+[2024-06-04 18:50:05] [ ERROR] [PacienteDAOH2:25] El domicilio del paciente es null
+[2024-06-04 18:50:10] [ INFO ] [PacienteDAOH2:23] Iniciando la operación de guardado del paciente: 
+[2024-06-04 18:50:10] [ ERROR] [PacienteDAOH2:25] El domicilio del paciente es null
+[2024-06-04 18:50:16] [ INFO ] [PacienteDAOH2:23] Iniciando la operación de guardado del paciente: 
+[2024-06-04 18:50:16] [ ERROR] [PacienteDAOH2:25] El domicilio del paciente es null
+[2024-06-04 18:50:36] [ INFO ] [PacienteDAOH2:23] Iniciando la operación de guardado del paciente: Nuevo Odon
+[2024-06-04 18:50:36] [ ERROR] [PacienteDAOH2:25] El domicilio del paciente es null
+[2024-06-04 18:51:33] [ INFO ] [BD:31] tabla creada con exito
+[2024-06-04 18:51:33] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-04 18:51:33] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-04 18:51:33] [ INFO ] [PacienteDAOH2:23] Iniciando la operación de guardado del paciente: Carla
+[2024-06-04 18:51:33] [ INFO ] [DomicilioDaoH2:41] Domicilio guardado exitosamente con ID: 3
+[2024-06-04 18:51:33] [ INFO ] [PacienteDAOH2:43] Paciente guardado exitosamente con ID: 3
+[2024-06-04 18:57:52] [ INFO ] [BD:31] tabla creada con exito
+[2024-06-04 18:57:52] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-04 18:57:52] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-04 18:57:52] [ INFO ] [PacienteDAOH2:23] iniciando la operacion de guardado
+[2024-06-04 18:57:52] [ INFO ] [DomicilioDaoH2:41] Domicilio guardado exitosamente con ID: 3
+[2024-06-04 18:57:52] [ INFO ] [PacienteDAOH2:40] Paciente guardado exitosamente!
+[2024-06-04 18:58:19] [ INFO ] [PacienteDAOH2:23] iniciando la operacion de guardado
+[2024-06-04 18:58:19] [ ERROR] [DomicilioDaoH2:25] El objeto Domicilio es null
+[2024-06-04 18:58:19] [ ERROR] [PacienteDAOH2:43] Cannot invoke "com.example.proyectoIntegrador11.entity.Domicilio.getId()" because "domicilio" is null
+[2024-06-04 18:58:23] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:58:23] [ INFO ] [DomicilioDaoH2:59] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:58:23] [ INFO ] [DomicilioDaoH2:59] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:58:23] [ INFO ] [DomicilioDaoH2:59] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:58:23] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:58:23] [ INFO ] [DomicilioDaoH2:59] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:58:23] [ INFO ] [DomicilioDaoH2:59] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:58:23] [ INFO ] [DomicilioDaoH2:59] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:58:23] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:58:23] [ INFO ] [DomicilioDaoH2:59] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:58:23] [ INFO ] [DomicilioDaoH2:59] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:58:23] [ INFO ] [DomicilioDaoH2:59] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 18:58:23] [ INFO ] [PacienteDAOH2:117] Pacientes buscados exitosamente
+[2024-06-04 18:58:23] [ INFO ] [DomicilioDaoH2:59] iniciando la busqueda de un domicilio por id: 1
+[2024-06-04 18:58:23] [ INFO ] [DomicilioDaoH2:59] iniciando la busqueda de un domicilio por id: 2
+[2024-06-04 18:58:23] [ INFO ] [DomicilioDaoH2:59] iniciando la busqueda de un domicilio por id: 3
+[2024-06-04 19:00:03] [ INFO ] [BD:31] tabla creada con exito
+[2024-06-04 19:00:03] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-04 19:00:03] [ INFO ] [OdontologoDaoH2:35] Odontologo guardado exitosamente
+[2024-06-04 19:00:03] [ INFO ] [PacienteDAOH2:23] iniciando la operacion de guardado
+[2024-06-04 19:00:03] [ INFO ] [DomicilioDaoH2:41] Domicilio guardado exitosamente con ID: 3
+[2024-06-04 19:00:03] [ INFO ] [PacienteDAOH2:40] Paciente guardado exitosamente!
