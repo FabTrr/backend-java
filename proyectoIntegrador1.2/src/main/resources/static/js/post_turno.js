@@ -1,33 +1,29 @@
 window.addEventListener('load', function () {
-    const formulario = document.querySelector('#add_new_paciente');
-    let pacientesRegistrados = []; // Array para almacenar pacientes registrados
+    const formulario = document.querySelector('#add_new_turno');
+    let turnosRegistrados = []; // Array para almacenar turnos registrados
 
     formulario.addEventListener('submit', function (event) {
         event.preventDefault();
         const formData = obtenerDatosFormulario();
 
         if (!esDatoUnico(formData)) {
-            mostrarMensajeError('El cedula o email ya está registrado.');
+            mostrarMensajeError('El turno ya está registrado.');
             return;
         }
 
         const settings = crearConfiguracionFetch(formData);
-        registrarPaciente(settings);
+        registrarTurno(settings);
     });
 
     function obtenerDatosFormulario() {
         return {
-            nombre: document.querySelector('#nombre').value,
-            apellido: document.querySelector('#apellido').value,
-            cedula: document.querySelector('#cedula').value,
-            fechaIngreso: document.querySelector('#fechaIngreso').value,
-            domicilio: {
-                calle: document.querySelector('#calle').value,
-                numero: document.querySelector('#numero').value,
-                localidad: document.querySelector('#localidad').value,
-                provincia: document.querySelector('#provincia').value
+            paciente: {
+                id: document.querySelector('#pacienteId').value
             },
-            email: document.querySelector('#email').value
+            odontologo: {
+                id: document.querySelector('#odontologoId').value
+            },
+            fecha: document.querySelector('#fecha').value
         };
     }
 
@@ -41,26 +37,28 @@ window.addEventListener('load', function () {
         };
     }
 
-    function registrarPaciente(settings) {
-        fetch('/pacientes/registrar', settings)
+    function registrarTurno(settings) {
+        fetch('/turnos/registrar', settings)
             .then(async response => {
                 if (!response.ok) {
                     const errorText = await response.text();
                     throw new Error("Error en la respuesta del servidor: " + errorText);
                 }
                 const data = await response.json();
-                pacientesRegistrados.push(data); // Agregar paciente registrado a la lista
+                turnosRegistrados.push(data); // Agregar turno registrado a la lista
                 mostrarMensajeExito();
             })
             .catch(error => {
-                console.error("Error al registrar paciente:", error);
+                console.error("Error al registrar turno:", error);
                 mostrarMensajeError();
             });
     }
 
     function esDatoUnico(formData) {
-        for (let paciente of pacientesRegistrados) {
-            if (paciente.cedula === formData.cedula || paciente.email === formData.email) {
+        for (let turno of turnosRegistrados) {
+            if (turno.paciente.id === formData.paciente.id &&
+                turno.odontologo.id === formData.odontologo.id &&
+                turno.fecha === formData.fecha) {
                 return false;
             }
         }
@@ -73,7 +71,7 @@ window.addEventListener('load', function () {
         divRespuesta.innerHTML = `
             <div class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>Paciente Agregado</strong>
+                <strong>Turno Agregado</strong>
             </div>`;
     }
 
@@ -91,7 +89,7 @@ window.addEventListener('load', function () {
         let pathname = window.location.pathname;
         if (pathname === "/") {
             document.querySelector(".nav .nav-item a:first").classList.add("active");
-        } else if (pathname == "/get_pacientes.html") {
+        } else if (pathname == "/get_turnos.html") {
             document.querySelector(".nav .nav-item a:last").classList.add("active");
         }
     })();
