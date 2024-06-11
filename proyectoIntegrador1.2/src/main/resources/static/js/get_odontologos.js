@@ -1,8 +1,8 @@
 window.addEventListener('load', function () {
     (function(){
 
-      //con fetch invocamos a la API de peliculas con el método GET
-      //nos devolverá un JSON con una coleccion
+      //con fetch invocamos a la API de odontologos con el método GET
+      //nos devolverá un JSON con una coleccion de odont
       const url = '/odontologos';
       const settings = {
         method: 'GET'
