@@ -23,13 +23,18 @@ window.addEventListener('load', function () {
                                       '&times' +
                                       '</button>';
 
-                let updateButton = '<a' +
-                                      ' href="update_turno.html?id=' + turno.id + '"' +
-                                      ' class="btn btn-info btn_id">' +
-                                      turno.id +
-                                      '</a>';
+                let infoButton = '<span' +
+                                 ' class="btn btn-info btn_id">' +
+                                 turno.id +
+                                 '</span>';
 
-                turnoRow.innerHTML = '<td>' + updateButton + '</td>' +
+                let updateButton = '<a' +
+                                   ' href="update_turno.html?id=' + turno.id + '"' +
+                                   ' class="btn btn-warning">' +
+                                   'Actualizar' +
+                                   '</a>';
+
+                turnoRow.innerHTML = '<td>' + infoButton + '</td>' +
                     '<td class=\"td_paciente_id\">' + turno.paciente.id + '</td>' +
                     '<td class=\"td_odontologo_id\">' + turno.odontologo.id + '</td>' +
                     '<td class=\"td_fecha\">' + turno.fecha + '</td>' +

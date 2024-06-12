@@ -12,6 +12,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/listarOdontologos.js"></script>
     <script type="text/javascript" src="js/post_odontologo.js"></script>
+    <script type="text/javascript" src="js/update_odontologo.js"></script>
+    <script type="text/javascript" src="js/delete_odontologo.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -83,22 +85,21 @@
              id="div_odontologo_updating">
             <form id="update_odontologo_form">
                 <div class="form-group">
-                    <label >Id:</label>
+                    <label for="odontologo_id">Id:</label>
                     <input type="text" class="form-control" id="odontologo_id" readonly>
                 </div>
                 <div class="form-group">
-                    <label >Matricula:</label>
+                    <label for="matricula">Matricula:</label>
                     <input type="text" class="form-control" placeholder="matricula" id="matricula">
                 </div>
                 <div class="form-group">
-                    <label >Nombre:</label>
+                    <label for="nombre">Nombre:</label>
                     <input type="text" class="form-control" placeholder="nombre" id="nombre">
                 </div>
                 <div class="form-group">
-                    <label >Apellido:</label>
+                    <label for="apellido">Apellido:</label>
                     <input type="text" class="form-control" placeholder="apellido" id="apellido">
                 </div>
-
 
                 <button type="submit" class="btn btn-primary">Modificar</button>
             </form>

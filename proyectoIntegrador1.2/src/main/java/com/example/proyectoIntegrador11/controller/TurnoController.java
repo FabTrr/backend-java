@@ -59,19 +59,31 @@ public class TurnoController {
     @GetMapping("/{id}")
     public ResponseEntity<TurnoDTO> buscarPorId(@PathVariable("id") Integer id) {
         Optional<TurnoDTO> turno = turnoService.buscarTurnoPorId(id);
-        if (turno.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(turno.get());
+        return turno.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PutMapping("/actualizar")
     public ResponseEntity<String> actualizarTurno(@RequestBody TurnoDTO turnoDTO) {
-        Optional<TurnoDTO> actualizarTurno = turnoService.buscarTurnoPorId(turnoDTO.getId());
-        if (actualizarTurno.isPresent()) {
-            turnoService.actualizarTurno(turnoDTO);
-            return ResponseEntity.ok("Turno actualizado");
+        Optional<TurnoDTO> turnoExistente = turnoService.buscarTurnoPorId(turnoDTO.getId());
+        if (turnoExistente.isPresent()) {
+            Optional<Paciente> pacienteBuscado = pacienteService.buscarPacientePorId(turnoDTO.getPaciente().getId());
+            Optional<Odontologo> odontologoBuscado = odontologoService.buscarOdontologoPorId(turnoDTO.getOdontologo().getId());
+            if (pacienteBuscado.isPresent() && odontologoBuscado.isPresent()) {
+                turnoDTO.setPaciente(pacienteBuscado.get());
+                turnoDTO.setOdontologo(odontologoBuscado.get());
+                turnoService.actualizarTurno(turnoDTO);
+                return ResponseEntity.ok("Turno actualizado");
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Paciente u Odontólogo no encontrado");
+            }
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Turno no encontrado");
+
     }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<String> handleIllegalArgumentException(IllegalArgumentException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+    }
+
 }

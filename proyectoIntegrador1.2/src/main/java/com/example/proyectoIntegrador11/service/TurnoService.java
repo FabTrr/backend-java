@@ -41,11 +41,18 @@ public class TurnoService {
     }
 
     public void actualizarTurno(TurnoDTO turnoDTO) {
-        Turno turno = mapper.convertValue(turnoDTO, Turno.class);
-        turnoRepository.save(turno);
+        // verifica que el turno existe antes de actualizarlo
+        Optional<Turno> turnoExistente = turnoRepository.findById(turnoDTO.getId());
+        if (turnoExistente.isPresent()) {
+            Turno turno = mapper.convertValue(turnoDTO, Turno.class);
+            turnoRepository.save(turno);
+        } else {
+            throw new IllegalArgumentException("Turno con ID " + turnoDTO.getId() + " no existe.");
+        }
     }
 
     public void eliminarTurno(Integer id) {
+
         turnoRepository.deleteById(id);
     }
 }

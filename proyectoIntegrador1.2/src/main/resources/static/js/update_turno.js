@@ -1,12 +1,22 @@
 window.addEventListener('load', function () {
     const formulario = document.querySelector('#update_turno_form');
-
-    // Rellenar formulario con los datos de la URL
     const params = new URLSearchParams(window.location.search);
-    document.querySelector('#id').value = params.get('id');
-    document.querySelector('#pacienteId').value = params.get('pacienteId');
-    document.querySelector('#odontologoId').value = params.get('odontologoId');
-    document.querySelector('#fecha').value = params.get('fecha');
+    const turnoId = params.get('id');
+
+    // Obtener datos del turno y precargar el formulario
+    if (turnoId) {
+        fetch(`/turnos/${turnoId}`)
+            .then(response => response.json())
+            .then(turno => {
+                if (turno) {
+                    document.querySelector('#id').value = turno.id;
+                    document.querySelector('#pacienteId').value = turno.paciente.id;
+                    document.querySelector('#odontologoId').value = turno.odontologo.id;
+                    document.querySelector('#fecha').value = turno.fecha;
+                }
+            })
+            .catch(error => console.error('Error al obtener los datos del turno:', error));
+    }
 
     formulario.addEventListener('submit', function (event) {
         event.preventDefault();
@@ -18,10 +28,14 @@ window.addEventListener('load', function () {
 
     function obtenerDatosFormulario() {
         return {
-            id: parseInt(document.querySelector('#id').value), // Asegurar que el ID sea un entero
-            pacienteId: parseInt(document.querySelector('#pacienteId').value),
-            odontologoId: parseInt(document.querySelector('#odontologoId').value),
-            fecha: document.querySelector('#fecha').value
+            id: parseInt(document.querySelector('#id').value),
+            fecha: document.querySelector('#fecha').value,
+            paciente: {
+                id: parseInt(document.querySelector('#pacienteId').value)
+            },
+            odontologo: {
+                id: parseInt(document.querySelector('#odontologoId').value)
+            }
         };
     }
 
@@ -37,9 +51,9 @@ window.addEventListener('load', function () {
 
     function actualizarTurno(settings) {
         fetch(`/turnos/actualizar`, settings)
-            .then(response => response.text())  // Manejo de respuesta en texto plano
+            .then(response => response.text())
             .then(text => {
-                console.log(text);  // Muestra la respuesta del servidor
+                console.log(text);
                 mostrarMensajeExito(text);
             })
             .catch(error => {
