@@ -3,7 +3,7 @@ package com.example.proyectoIntegrador11.controller;
 
 import com.example.proyectoIntegrador11.entity.Paciente;
 import com.example.proyectoIntegrador11.exception.BadRequestException;
-import com.example.proyectoIntegrador11.exception.ResouceNotFoundException;
+import com.example.proyectoIntegrador11.exception.ResourceNotFoundException;
 import com.example.proyectoIntegrador11.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,13 +29,13 @@ public class PacienteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminarPacienteId(@PathVariable("id") Integer id) throws ResouceNotFoundException {
+    public ResponseEntity<String> eliminarPacienteId(@PathVariable("id") Integer id) throws ResourceNotFoundException {
         Optional<Paciente> paciente = pacienteService.buscarPacientePorId(id);
         if (paciente.isPresent()) {
             pacienteService.eliminarPaciente(id);
             return ResponseEntity.ok().body("Paciente eliminado");
         }
-        throw new ResouceNotFoundException("No existe un paciente con id: " + id);
+        throw new ResourceNotFoundException("No existe un paciente con id: " + id);
     }
 
     @GetMapping

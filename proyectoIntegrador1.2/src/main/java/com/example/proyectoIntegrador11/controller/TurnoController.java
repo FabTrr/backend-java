@@ -5,11 +5,10 @@ import com.example.proyectoIntegrador11.entity.Paciente;
 import com.example.proyectoIntegrador11.entity.Turno;
 import com.example.proyectoIntegrador11.entity.TurnoDTO;
 import com.example.proyectoIntegrador11.exception.BadRequestException;
-import com.example.proyectoIntegrador11.exception.ResouceNotFoundException;
+import com.example.proyectoIntegrador11.exception.ResourceNotFoundException;
 import com.example.proyectoIntegrador11.service.OdontologoService;
 import com.example.proyectoIntegrador11.service.PacienteService;
 import com.example.proyectoIntegrador11.service.TurnoService;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +28,7 @@ public class TurnoController {
     private OdontologoService odontologoService;
 
     @PostMapping("/registrar")
-    public ResponseEntity<Turno> guardarTurno(@RequestBody TurnoDTO turnoDTO){
+    public ResponseEntity<Turno> guardarTurno(@RequestBody TurnoDTO turnoDTO) throws BadRequestException {
         Optional<Paciente> pacienteBuscado = pacienteService.buscarPacientePorId(turnoDTO.getPaciente().getId());
         Optional<Odontologo> odontologoBuscado = odontologoService.buscarOdontologoPorId(turnoDTO.getOdontologo().getId());
         if (pacienteBuscado.isPresent() && odontologoBuscado.isPresent()) {
@@ -50,13 +49,13 @@ public class TurnoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminarTurno(@PathVariable("id") Integer id) throws ResouceNotFoundException {
+    public ResponseEntity<String> eliminarTurno(@PathVariable("id") Integer id) throws ResourceNotFoundException {
         Optional<TurnoDTO> turnoBuscado = turnoService.buscarTurnoPorId(id);
         if (turnoBuscado.isPresent()) {
             turnoService.eliminarTurno(id);
             return ResponseEntity.ok("Turno eliminado");
         }
-        throw new ResouceNotFoundException("No existe un turno con id: " + id);
+        throw new ResourceNotFoundException("No existe un turno con id: " + id);
     }
 
     @GetMapping("/{id}")
@@ -69,7 +68,7 @@ public class TurnoController {
     }
 
     @PutMapping("/actualizar")
-    public ResponseEntity<String> actualizarTurno(@RequestBody TurnoDTO turnoDTO) {
+    public ResponseEntity<String> actualizarTurno(@RequestBody TurnoDTO turnoDTO) throws BadRequestException {
         try {
             turnoService.actualizarTurno(turnoDTO);
             return ResponseEntity.ok("Turno actualizado");
