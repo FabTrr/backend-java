@@ -61,18 +61,19 @@
             <form id="add_new_turno">
                 <div class="form-group">
                     <label for="pacienteId">ID Paciente</label>
-                    <input type="number" class="form-control" id="pacienteId" placeholder="Ingrese ID del paciente">
+                    <input type="number" class="form-control" id="pacienteId" placeholder="Ingrese ID del paciente" required>
                 </div>
                 <div class="form-group">
                     <label for="odontologoId">ID Odontólogo</label>
-                    <input type="number" class="form-control" id="odontologoId" placeholder="Ingrese ID del odontólogo">
+                    <input type="number" class="form-control" id="odontologoId" placeholder="Ingrese ID del odontólogo" required>
                 </div>
                 <div class="form-group">
                     <label for="fecha">Fecha</label>
-                    <input type="date" class="form-control" id="fecha">
+                    <input type="date" class="form-control" id="fecha" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Agregar</button>
             </form>
+
             <div id="response" style="display:none"></div>
         </div>
     </div>

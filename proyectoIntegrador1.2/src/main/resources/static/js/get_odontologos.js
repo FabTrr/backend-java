@@ -1,52 +1,35 @@
-window.addEventListener('load', function () {
-    (function(){
+window.addEventListener('load', function() {
+    fetch('/odontologos')
+        .then(response => response.json())
+        .then(data => {
+            let tableBody = document.querySelector('#OdontologoTableBody');
+            data.forEach(odontologo => {
+                let row = document.createElement('tr');
 
-      //con fetch invocamos a la API de odontologos con el método GET
-      //nos devolverá un JSON con una coleccion de odont
-      const url = '/odontologos';
-      const settings = {
-        method: 'GET'
-      }
+                row.innerHTML = `
+                    <td>${odontologo.id}</td>
+                    <td>${odontologo.numeroMatricula}</td>
+                    <td>${odontologo.nombre.toUpperCase()}</td>
+                    <td>${odontologo.apellido.toUpperCase()}</td>
+                    <td><a href="update_odontologo.html?id=${odontologo.id}&nombre=${odontologo.nombre}&apellido=${odontologo.apellido}&matricula=${odontologo.numeroMatricula}" class="btn btn-warning">Actualizar</a></td>
+                    <td><button class="btn btn-danger" onclick="eliminarOdontologo(${odontologo.id})">Eliminar</button></td>
+                `;
+                tableBody.appendChild(row);
+            });
+        });
+});
 
-      fetch(url,settings)
-      .then(response => response.json())
-      .then(data => {
-
-         for(odontologo of data){
-
-            var table = document.getElementById("odontologoTable");
-            var odontologoRow =table.insertRow();
-            let tr_id = odontologo.id;
-            odontologo.id = tr_id;
-
-
-            let deleteButton = '<button' +
-                                      ' id=' + '\"' + 'btn_delete_' + odontologo.id + '\"' +
-                                      ' type="button" onclick="deleteBy('+odontologo.id+')" class="btn btn-danger btn_delete">' +
-                                      '&times' +
-                                      '</button>';
-
-            let updateButton = '<button' +
-                                      ' id=' + '\"' + 'btn_id_' + odontologo.id + '\"' +
-                                      ' type="button" onclick="findBy('+odontologo.id+')" class="btn btn-info btn_id">' +
-                                      odontologo.id +
-                                      '</button>';
-
-            odontologoRow.innerHTML = '<td>' + updateButton + '</td>' +
-                    '<td class=\"td_matricula\">' + odontologo.numeroMatricula + '</td>' +
-                    '<td class=\"td_nombre\">' + odontologo.nombre.toUpperCase() + '</td>' +
-                    '<td class=\"td_apellido\">' + odontologo.apellido.toUpperCase() + '</td>' +
-                    '<td>' + deleteButton + '</td>';
-
-        };
-
-    })
-    })
-
-    (function(){
-      let pathname = window.location.pathname;
-      if (pathname == "/get_odontologos.html") {
-          document.querySelector(".nav .nav-item a:last").addClass("active");
-      }
-    })
-    })
+function eliminarOdontologo(id) {
+    if (confirm('¿Esta seguro que desea eliminar el odontologo?')) {
+        fetch(`/odontologos/${id}`, {
+            method: 'DELETE'
+        })
+        .then(response => {
+            if (response.ok) {
+                location.reload();
+            } else {
+                alert('Error al eliminar odontologo');
+            }
+        });
+    }
+}

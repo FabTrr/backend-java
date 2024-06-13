@@ -1,17 +1,16 @@
 window.addEventListener('load', function () {
     const formulario = document.querySelector('#update_odontologo_form');
 
-    // rellenar formulario con los datos de la URL
+    // Rellenar formulario con los datos de la URL
     const params = new URLSearchParams(window.location.search);
     document.querySelector('#id').value = params.get('id');
     document.querySelector('#nombre').value = params.get('nombre');
     document.querySelector('#apellido').value = params.get('apellido');
-    document.querySelector('#matricula').value = params.get('matricula');
+    document.querySelector('#numeroMatricula').value = params.get('numeroMatricula');
 
     formulario.addEventListener('submit', function (event) {
         event.preventDefault();
         const formData = obtenerDatosFormulario();
-
         const settings = crearConfiguracionFetch(formData);
         actualizarOdontologo(settings);
     });
@@ -21,8 +20,7 @@ window.addEventListener('load', function () {
             id: document.querySelector('#id').value,
             nombre: document.querySelector('#nombre').value,
             apellido: document.querySelector('#apellido').value,
-            matricula: document.querySelector('#matricula').value,
-            email: document.querySelector('#email').value
+            numeroMatricula: document.querySelector('#numeroMatricula').value // Asegurarse de capturar la matrícula
         };
     }
 
@@ -37,10 +35,10 @@ window.addEventListener('load', function () {
     }
 
     function actualizarOdontologo(settings) {
-        fetch(`/odontologos`, settings)
+        fetch(`/odontologos/actualizar`, settings)
             .then(response => response.text())
             .then(text => {
-                console.log(text);  //respuesta del servidor
+                console.log(text);  // respuesta del servidor
                 mostrarMensajeExito(text);
             })
             .catch(error => {

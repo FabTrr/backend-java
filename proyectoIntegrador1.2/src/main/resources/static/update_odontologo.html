@@ -14,7 +14,7 @@
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">Home</a>
+        <a class="navbar-brand" href="./index.html">Home</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -25,18 +25,18 @@
                         Pacientes
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="post_pacientes.html">Guardar</a></li>
-                        <li><a class="dropdown-item" href="get_pacientes.html">Listar</a></li>
+                        <li><a class="dropdown-item" href="./post_pacientes.html">Guardar</a></li>
+                        <li><a class="dropdown-item" href="./get_pacientes.html">Listar</a></li>
                         <li><hr class="dropdown-divider"></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Odontólogos
+                        Odontologos
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="post_odontologos.html">Guardar</a></li>
-                        <li><a class="dropdown-item" href="get_odontologos.html">Listar</a></li>
+                        <li><a class="dropdown-item" href="./post_odontologos.html">Guardar</a></li>
+                        <li><a class="dropdown-item" href="./get_odontologos.html">Listar</a></li>
                         <li><hr class="dropdown-divider"></li>
                     </ul>
                 </li>
@@ -45,8 +45,8 @@
                         Turnos
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="post_turnos.html">Guardar</a></li>
-                        <li><a class="dropdown-item" href="get_turnos.html">Listar</a></li>
+                        <li><a class="dropdown-item" href="./post_turnos.html">Guardar</a></li>
+                        <li><a class="dropdown-item" href="./get_turnos.html">Listar</a></li>
                         <li><hr class="dropdown-divider"></li>
                     </ul>
                 </li>
@@ -56,7 +56,7 @@
 </nav>
 <div class="container">
     <div class="row">
-        <div class="col-sm-7" style="background-color:#e6fffa; margin-top:20px">
+        <div class="col-sm-8" style="background-color:#e6fffa; margin-top:20px">
             <h3 style="text-align:center">Actualizar Odontólogo</h3>
             <form id="update_odontologo_form">
                 <input type="hidden" id="id">
@@ -69,12 +69,13 @@
                     <input type="text" class="form-control" id="apellido" required>
                 </div>
                 <div class="form-group">
-                    <label for="matricula">Matricula:</label>
-                    <input type="text" class="form-control" id="matricula" required>
+                    <label for="numeroMatricula">Matricula:</label>
+                    <input type="text" class="form-control" id="numeroMatricula" required>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Actualizar</button>
             </form>
+
             <div id="response" style="display:none;"></div>
         </div>
     </div>

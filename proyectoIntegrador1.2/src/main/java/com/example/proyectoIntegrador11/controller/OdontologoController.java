@@ -30,12 +30,12 @@ public class OdontologoController {
         return ResponseEntity.ok(odontologoService.guardarOdontologo(odontologo));
     }
 
-    @PutMapping
+    @PutMapping("/actualizar")
     public ResponseEntity<String> actualizar(@RequestBody Odontologo odontologo) {
         Optional<Odontologo> actualizarOdontologo = odontologoService.buscarOdontologoPorId(odontologo.getId());
         if (actualizarOdontologo.isPresent()) {
             odontologoService.actualizarOdontologo(odontologo);
-            return ResponseEntity.ok("Odontologo actualizado");
+            return ResponseEntity.ok().body("Odontologo actualizado");
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Odontologo no encontrado");
     }

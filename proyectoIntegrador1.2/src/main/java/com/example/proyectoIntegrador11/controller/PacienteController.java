@@ -61,6 +61,6 @@ public class PacienteController {
             pacienteService.actualizarPaciente(paciente);
             return ResponseEntity.ok().body("Paciente actualizado");
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Paciente no encontrado para actualizar");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Paciente no encontrado");
     }
 }
