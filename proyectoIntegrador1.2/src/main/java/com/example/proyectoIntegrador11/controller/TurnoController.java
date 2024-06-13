@@ -4,9 +4,12 @@ import com.example.proyectoIntegrador11.entity.Odontologo;
 import com.example.proyectoIntegrador11.entity.Paciente;
 import com.example.proyectoIntegrador11.entity.Turno;
 import com.example.proyectoIntegrador11.entity.TurnoDTO;
+import com.example.proyectoIntegrador11.exception.BadRequestException;
+import com.example.proyectoIntegrador11.exception.ResouceNotFoundException;
 import com.example.proyectoIntegrador11.service.OdontologoService;
 import com.example.proyectoIntegrador11.service.PacienteService;
 import com.example.proyectoIntegrador11.service.TurnoService;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -47,43 +50,31 @@ public class TurnoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminarTurno(@PathVariable("id") Integer id) {
+    public ResponseEntity<String> eliminarTurno(@PathVariable("id") Integer id) throws ResouceNotFoundException {
         Optional<TurnoDTO> turnoBuscado = turnoService.buscarTurnoPorId(id);
         if (turnoBuscado.isPresent()) {
             turnoService.eliminarTurno(id);
             return ResponseEntity.ok("Turno eliminado");
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Turno no encontrado o eliminado con anterioridad");
+        throw new ResouceNotFoundException("No existe un turno con id: " + id);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<TurnoDTO> buscarPorId(@PathVariable("id") Integer id) {
         Optional<TurnoDTO> turno = turnoService.buscarTurnoPorId(id);
-        return turno.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        if (turno.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(turno.get());
     }
 
     @PutMapping("/actualizar")
     public ResponseEntity<String> actualizarTurno(@RequestBody TurnoDTO turnoDTO) {
-        Optional<TurnoDTO> turnoExistente = turnoService.buscarTurnoPorId(turnoDTO.getId());
-        if (turnoExistente.isPresent()) {
-            Optional<Paciente> pacienteBuscado = pacienteService.buscarPacientePorId(turnoDTO.getPaciente().getId());
-            Optional<Odontologo> odontologoBuscado = odontologoService.buscarOdontologoPorId(turnoDTO.getOdontologo().getId());
-            if (pacienteBuscado.isPresent() && odontologoBuscado.isPresent()) {
-                turnoDTO.setPaciente(pacienteBuscado.get());
-                turnoDTO.setOdontologo(odontologoBuscado.get());
-                turnoService.actualizarTurno(turnoDTO);
-                return ResponseEntity.ok("Turno actualizado");
-            } else {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Paciente u Odontólogo no encontrado");
-            }
+        try {
+            turnoService.actualizarTurno(turnoDTO);
+            return ResponseEntity.ok("Turno actualizado");
+        } catch (BadRequestException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Turno no encontrado");
-
     }
-
-    @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<String> handleIllegalArgumentException(IllegalArgumentException ex) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
-    }
-
 }

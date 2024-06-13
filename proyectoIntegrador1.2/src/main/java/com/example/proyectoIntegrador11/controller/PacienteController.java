@@ -2,7 +2,8 @@ package com.example.proyectoIntegrador11.controller;
 
 
 import com.example.proyectoIntegrador11.entity.Paciente;
-import com.example.proyectoIntegrador11.exception.ResourceNotFoundException;
+import com.example.proyectoIntegrador11.exception.BadRequestException;
+import com.example.proyectoIntegrador11.exception.ResouceNotFoundException;
 import com.example.proyectoIntegrador11.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,7 @@ public class PacienteController {
     private PacienteService pacienteService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Paciente> bucarPacienteId(@PathVariable("id") Integer id) {
+    public ResponseEntity<Paciente> buscarPacienteId(@PathVariable("id") Integer id) {
         Optional<Paciente> paciente = pacienteService.buscarPacientePorId(id);
         if (paciente.isPresent()) {
             return ResponseEntity.ok(paciente.get());
@@ -28,15 +29,15 @@ public class PacienteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminarPacienteId(@PathVariable("id") Integer id) throws ResourceNotFoundException {
+    public ResponseEntity<String> eliminarPacienteId(@PathVariable("id") Integer id) throws ResouceNotFoundException {
         Optional<Paciente> paciente = pacienteService.buscarPacientePorId(id);
         if (paciente.isPresent()) {
             pacienteService.eliminarPaciente(id);
             return ResponseEntity.ok().body("Paciente eliminado");
-        } else {
-            throw new ResourceNotFoundException("No existe el ID: "+id);
         }
+        throw new ResouceNotFoundException("No existe un paciente con id: " + id);
     }
+
     @GetMapping
     public ResponseEntity<List<Paciente>> listarPacientes() {
         List<Paciente> pacientes = pacienteService.buscarPacientes();
@@ -47,10 +48,10 @@ public class PacienteController {
     }
 
     @PostMapping("/registrar")
-    public ResponseEntity<Paciente> registrar(@RequestBody Paciente paciente) {
+    public ResponseEntity<Paciente> registrar(@RequestBody Paciente paciente) throws BadRequestException {
         Optional<Paciente> pacienteBuscado = pacienteService.buscarPacientePorEmail(paciente.getEmail());
         if (pacienteBuscado.isPresent()) {
-            return ResponseEntity.badRequest().build();
+            throw new BadRequestException("El paciente ya está registrado con el email ingresado");
         }
         return ResponseEntity.ok(pacienteService.guardarPaciente(paciente));
     }
@@ -62,6 +63,6 @@ public class PacienteController {
             pacienteService.actualizarPaciente(paciente);
             return ResponseEntity.ok().body("Paciente actualizado");
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Paciente no encontrado");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Paciente no encontrado para actualizar");
     }
 }

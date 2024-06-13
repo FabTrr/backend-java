@@ -30,7 +30,11 @@ public class OdontologoService {
     }
 
     public void eliminarOdontologo(Integer id) {
-
         odontologoRepository.deleteById(id);
+    }
+
+    public Optional<Odontologo> buscarOdontologoPorMatricula(Integer numero) {
+
+        return odontologoRepository.findByNumeroMatricula(numero);
     }
 }

@@ -15,7 +15,7 @@ public class TurnoDTO {
     private Paciente paciente;
     private Odontologo odontologo;
 
-    // getter para el ID (ya proporcionado por la anotacion @Getter de Lombok)
+    //getter para el ID (ya proporcionado por la anotacion @Getter de Lombok)
     public Integer getId() {
         return id;
     }
