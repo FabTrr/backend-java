@@ -1,13 +1,13 @@
 window.addEventListener('load', function () {
     const formulario = document.querySelector('#add_new_turno');
-    let turnosRegistrados = []; // Array para almacenar turnos registrados
+    let turnosRegistrados = []; //array para almacenar turnos registrados
 
     formulario.addEventListener('submit', function (event) {
         event.preventDefault();
         const formData = obtenerDatosFormulario();
 
         if (!esDatoUnico(formData)) {
-            mostrarMensajeError('El turno ya está registrado.');
+            mostrarMensajeError('El turno ya esta registrado.');
             return;
         }
 
@@ -37,22 +37,27 @@ window.addEventListener('load', function () {
         };
     }
 
-    function registrarTurno(settings) {
-        fetch('/turnos/registrar', settings)
-            .then(async response => {
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    throw new Error("Error en la respuesta del servidor: " + errorText);
-                }
-                const data = await response.json();
-                turnosRegistrados.push(data); // Agregar turno registrado a la lista
-                mostrarMensajeExito();
-            })
-            .catch(error => {
+function registrarTurno(settings) {
+    fetch('/turnos/registrar', settings)
+        .then(async response => {
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error("Error en la respuesta del servidor: " + errorText);
+            }
+            const data = await response.json();
+            turnosRegistrados.push(data); //agregar turno registrado a la lista
+            mostrarMensajeExito();
+        })
+        .catch(error => {
+            if (error.message.includes('404')) {
+                mostrarMensajeError('ID de paciente u odontologo no encontrado.');
+            } else {
                 console.error("Error al registrar turno:", error);
-                mostrarMensajeError();
-            });
-    }
+                mostrarMensajeError('Error al comunicarse con el servidor.');
+            }
+        });
+}
+
 
     function esDatoUnico(formData) {
         for (let turno of turnosRegistrados) {

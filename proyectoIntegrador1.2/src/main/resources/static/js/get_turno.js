@@ -20,11 +20,10 @@ window.addEventListener('load', function () {
                 let deleteButton = '<button' +
                                       ' id=' + '\"' + 'btn_delete_' + turno.id + '\"' +
                                       ' type="button" onclick="deleteBy('+turno.id+')" class="btn btn-danger btn_delete">' +
-                                      '&times' +
+                                      'Eliminar' +
                                       '</button>';
 
-                let infoButton = '<span' +
-                                 ' class="btn btn-info btn_id">' +
+                let infoButton = '<span>' +
                                  turno.id +
                                  '</span>';
 
@@ -51,3 +50,4 @@ window.addEventListener('load', function () {
         }
     })();
 });
+
