@@ -2,6 +2,7 @@ package com.example.proyectoIntegrador11.controller;
 
 
 import com.example.proyectoIntegrador11.entity.Paciente;
+import com.example.proyectoIntegrador11.exception.ResourceNotFoundException;
 import com.example.proyectoIntegrador11.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,15 +28,15 @@ public class PacienteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminarPacienteId(@PathVariable("id") Integer id) {
+    public ResponseEntity<String> eliminarPacienteId(@PathVariable("id") Integer id) throws ResourceNotFoundException {
         Optional<Paciente> paciente = pacienteService.buscarPacientePorId(id);
         if (paciente.isPresent()) {
             pacienteService.eliminarPaciente(id);
             return ResponseEntity.ok().body("Paciente eliminado");
+        } else {
+            throw new ResourceNotFoundException("No existe el ID: "+id);
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Paciente no encontrado o eliminado con anterioridad");
     }
-
     @GetMapping
     public ResponseEntity<List<Paciente>> listarPacientes() {
         List<Paciente> pacientes = pacienteService.buscarPacientes();

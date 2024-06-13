@@ -30,6 +30,7 @@ public class OdontologoService {
     }
 
     public void eliminarOdontologo(Integer id) {
+
         odontologoRepository.deleteById(id);
     }
 }
