@@ -69,7 +69,7 @@ class ApplicationTests {
 	@Test
 	@Order(1)
 	public void agregarPaciente() {
-		//DADO
+		// DADO
 		Domicilio domicilio = new Domicilio();
 		domicilio.setCalle("Calle A");
 		domicilio.setNumero(123);
@@ -84,10 +84,10 @@ class ApplicationTests {
 		paciente.setDomicilio(domicilio);
 		paciente.setEmail("hola@maria.com");
 
-		//CUANDO
+		// CUANDO
 		Paciente pacienteGuardado = pacienteService.guardarPaciente(paciente);
 
-		//ENTONCES
+		// ENTONCES
 		Assertions.assertNotNull(pacienteGuardado);
 		Assertions.assertNotNull(pacienteGuardado.getId());
 		Assertions.assertEquals("Maria", pacienteGuardado.getNombre());
@@ -101,18 +101,18 @@ class ApplicationTests {
 		Assertions.assertEquals("Provincia Falsa", pacienteGuardado.getDomicilio().getProvincia());
 		Assertions.assertEquals("hola@maria.com", pacienteGuardado.getEmail());
 	}
-/*
+
 	/***** TEST PARA BUSCAR PACIENTE POR EMAIL *****/
 	@Test
 	@Order(9)
 	void buscarPacientePorEmail() {
-		//DADO
+		// DADO
 		String email = paciente.getEmail();
 
-		//CUANDO
+		// CUANDO
 		Optional<Paciente> pacienteBuscado = pacienteService.buscarPacientePorEmail(email);
 
-		//ENTONCES
+		// ENTONCES
 		Assertions.assertTrue(pacienteBuscado.isPresent());
 		Assertions.assertEquals(email, pacienteBuscado.get().getEmail());
 		Assertions.assertEquals("Maria", pacienteBuscado.get().getNombre());
@@ -122,32 +122,31 @@ class ApplicationTests {
 	/***** TEST PARA ACTUALIZAR UN PACIENTE *****/
 	@Test
 	@Order(8)
-	void actualizarPaciente()
-	{
-		//DADO
-		paciente.setNombre("María Actualizada");
-		paciente.setApellido("Lopez Actualizada");
+	void actualizarPaciente() {
+		// DADO
+		paciente.setNombre("Maria");
+		paciente.setApellido("Lopez");
 
-		//CUANDO
+		// CUANDO
 		pacienteService.actualizarPaciente(paciente);
 		Optional<Paciente> pacienteActualizado = pacienteService.buscarPacientePorId(paciente.getId());
 
-		//ENTONCES
+		// ENTONCES
 		Assertions.assertTrue(pacienteActualizado.isPresent());
-		Assertions.assertEquals("María Actualizada", pacienteActualizado.get().getNombre());
-		Assertions.assertEquals("Lopez Actualizada", pacienteActualizado.get().getApellido());
+		Assertions.assertEquals("Maria", pacienteActualizado.get().getNombre());
+		Assertions.assertEquals("Lopez", pacienteActualizado.get().getApellido());
 	}
 
 	/***** TEST PARA LISTAR TODOS LOS PACIENTES *****/
 	@Test
 	@Order(7)
 	void listarTodosLosPacientes() {
-		//DADO - Pacientes ya creados en setUp
+		// DADO - Pacientes ya creados en setUp
 
-		//CUANDO
+		// CUANDO
 		List<Paciente> pacientes = pacienteService.buscarPacientes();
 
-		//ENTONCES
+		// ENTONCES
 		Assertions.assertFalse(pacientes.isEmpty());
 		Assertions.assertTrue(pacientes.contains(paciente));
 	}
@@ -156,16 +155,16 @@ class ApplicationTests {
 	@Test
 	@Order(2)
 	public void agregarOdontologo() {
-		//DADO
+		// DADO
 		Odontologo odontologo = new Odontologo();
 		odontologo.setNombre("Juan");
 		odontologo.setApellido("Muelas");
 		odontologo.setNumeroMatricula(1212);
 
-		//CUANDO
+		// CUANDO
 		Odontologo odontologoGuardado = odontologoService.guardarOdontologo(odontologo);
 
-		//ENTONCES
+		// ENTONCES
 		Assertions.assertNotNull(odontologoGuardado);
 		Assertions.assertNotNull(odontologoGuardado.getId());
 		Assertions.assertEquals("Juan", odontologoGuardado.getNombre());
@@ -177,13 +176,13 @@ class ApplicationTests {
 	@Test
 	@Order(6)
 	void buscarOdontologoPorMatricula() {
-		//DADO
+		// DADO
 		Integer numeroMatricula = odontologo.getNumeroMatricula();
 
-		//CUANDO
+		// CUANDO
 		Optional<Odontologo> odontologoBuscado = odontologoService.buscarOdontologoPorMatricula(numeroMatricula);
 
-		//ENTONCES
+		// ENTONCES
 		Assertions.assertTrue(odontologoBuscado.isPresent());
 		Assertions.assertEquals(numeroMatricula, odontologoBuscado.get().getNumeroMatricula());
 		Assertions.assertEquals("Pedro", odontologoBuscado.get().getNombre());
@@ -195,12 +194,6 @@ class ApplicationTests {
 	@Order(3)
 	void guardarTurno() {
 		// DADO
-		Paciente paciente = new Paciente();
-		paciente.setId(1);
-
-		Odontologo odontologo = new Odontologo();
-		odontologo.setId(1);
-
 		TurnoDTO turnoDTO = new TurnoDTO();
 		turnoDTO.setPaciente(paciente);
 		turnoDTO.setOdontologo(odontologo);
@@ -223,17 +216,18 @@ class ApplicationTests {
 	@Test
 	@Order(4)
 	void buscarTurnoPorId() {
-		//DADO
+		// DADO
 		TurnoDTO turnoDTO = new TurnoDTO();
 		turnoDTO.setPaciente(paciente);
 		turnoDTO.setOdontologo(odontologo);
 		turnoDTO.setFecha(LocalDate.of(2023, 6, 15));
+		turnoDTO.setHora(LocalTime.of(10, 30));
 		Turno turnoGuardado = turnoService.guardarTurno(turnoDTO);
 
-		//CUANDO
+		// CUANDO
 		Optional<TurnoDTO> turnoBuscado = turnoService.buscarTurnoPorId(turnoGuardado.getId());
 
-		//ENTONCES
+		// ENTONCES
 		Assertions.assertTrue(turnoBuscado.isPresent());
 		Assertions.assertEquals(turnoGuardado.getId(), turnoBuscado.get().getId());
 	}
@@ -242,39 +236,40 @@ class ApplicationTests {
 	@Test
 	@Order(5)
 	void actualizarTurno() throws BadRequestException {
-		//DADO
+		// DADO
 		TurnoDTO turnoDTO = new TurnoDTO();
 		turnoDTO.setPaciente(paciente);
 		turnoDTO.setOdontologo(odontologo);
 		turnoDTO.setFecha(LocalDate.of(2023, 6, 15));
+		turnoDTO.setHora(LocalTime.of(10, 30));
 		Turno turnoGuardado = turnoService.guardarTurno(turnoDTO);
 
 		turnoDTO.setId(turnoGuardado.getId());
 		turnoDTO.setFecha(LocalDate.of(2023, 6, 16));
 
-		//CUANDO
+		// CUANDO
 		turnoService.actualizarTurno(turnoDTO);
 		Optional<TurnoDTO> turnoActualizado = turnoService.buscarTurnoPorId(turnoGuardado.getId());
 
-		//ENTONCES
+		// ENTONCES
 		Assertions.assertTrue(turnoActualizado.isPresent());
 		Assertions.assertEquals(LocalDate.of(2023, 6, 16), turnoActualizado.get().getFecha());
 	}
 
-	/***** TESTS DE ELIMINACIÓN *****/
+	/***** TESTS DE ELIMINACION *****/
 
 	/***** TEST PARA ELIMINAR PACIENTE *****/
 	@Test
 	@Order(10)
 	void eliminarPaciente() {
-		//DADO
+		// DADO
 		Integer pacienteId = paciente.getId();
 
-		//CUANDO
+		// CUANDO
 		pacienteService.eliminarPaciente(pacienteId);
 		Optional<Paciente> pacienteEliminado = pacienteService.buscarPacientePorId(pacienteId);
 
-		//ENTONCES
+		// ENTONCES
 		Assertions.assertFalse(pacienteEliminado.isPresent());
 	}
 
@@ -282,14 +277,14 @@ class ApplicationTests {
 	@Test
 	@Order(11)
 	void eliminarOdontologo() {
-		//DADO
+		// DADO
 		Integer odontologoId = odontologo.getId();
 
-		//CUANDO
+		// CUANDO
 		odontologoService.eliminarOdontologo(odontologoId);
 		Optional<Odontologo> odontologoEliminado = odontologoService.buscarOdontologoPorId(odontologoId);
 
-		//ENTONCES
+		// ENTONCES
 		Assertions.assertFalse(odontologoEliminado.isPresent());
 	}
 
@@ -297,18 +292,19 @@ class ApplicationTests {
 	@Test
 	@Order(12)
 	void eliminarTurno() {
-		//DADO
+		// DADO
 		TurnoDTO turnoDTO = new TurnoDTO();
 		turnoDTO.setPaciente(paciente);
 		turnoDTO.setOdontologo(odontologo);
 		turnoDTO.setFecha(LocalDate.of(2023, 6, 15));
+		turnoDTO.setHora(LocalTime.of(10, 30));
 		Turno turnoGuardado = turnoService.guardarTurno(turnoDTO);
 
-		//CUANDO
+		// CUANDO
 		turnoService.eliminarTurno(turnoGuardado.getId());
 		Optional<TurnoDTO> turnoEliminado = turnoService.buscarTurnoPorId(turnoGuardado.getId());
 
-		//ENTONCES
+		// ENTONCES
 		Assertions.assertFalse(turnoEliminado.isPresent());
 	}
 
