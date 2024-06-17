@@ -34,6 +34,7 @@ public class TurnoController {
         if (pacienteBuscado.isPresent() && odontologoBuscado.isPresent()) {
             turnoDTO.setPaciente(pacienteBuscado.get());
             turnoDTO.setOdontologo(odontologoBuscado.get());
+
             return ResponseEntity.ok(turnoService.guardarTurno(turnoDTO));
         }
         return ResponseEntity.badRequest().build();

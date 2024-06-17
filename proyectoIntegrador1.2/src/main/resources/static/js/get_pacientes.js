@@ -13,7 +13,6 @@ window.addEventListener('load', function() {
                     <td>${paciente.cedula}</td>
                     <td>${paciente.fechaIngreso}</td>
                     <td>${paciente.domicilio.calle}</td>
-                    <td>${paciente.email}</td>
                     <td><a href="update_paciente.html?id=${paciente.id}&nombre=${paciente.nombre}&apellido=${paciente.apellido}&cedula=${paciente.cedula}&fechaIngreso=${paciente.fechaIngreso}&calle=${paciente.domicilio.calle}&numero=${paciente.domicilio.numero}&localidad=${paciente.domicilio.localidad}&provincia=${paciente.domicilio.provincia}&email=${paciente.email}" class="btn btn-warning">Actualizar</a></td>
                     <td><button class="btn btn-danger" onclick="eliminarPaciente(${paciente.id})">Eliminar</button></td>
                 `;

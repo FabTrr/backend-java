@@ -11,6 +11,7 @@ import com.example.proyectoIntegrador11.service.PacienteService;
 import com.example.proyectoIntegrador11.service.TurnoService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,6 +19,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -65,6 +67,7 @@ class ApplicationTests {
 
 	/***** TEST PARA AGREGAR PACIENTE *****/
 	@Test
+	@Order(1)
 	public void agregarPaciente() {
 		//DADO
 		Domicilio domicilio = new Domicilio();
@@ -98,9 +101,10 @@ class ApplicationTests {
 		Assertions.assertEquals("Provincia Falsa", pacienteGuardado.getDomicilio().getProvincia());
 		Assertions.assertEquals("hola@maria.com", pacienteGuardado.getEmail());
 	}
-
+/*
 	/***** TEST PARA BUSCAR PACIENTE POR EMAIL *****/
 	@Test
+	@Order(9)
 	void buscarPacientePorEmail() {
 		//DADO
 		String email = paciente.getEmail();
@@ -117,7 +121,9 @@ class ApplicationTests {
 
 	/***** TEST PARA ACTUALIZAR UN PACIENTE *****/
 	@Test
-	void actualizarPaciente() {
+	@Order(8)
+	void actualizarPaciente()
+	{
 		//DADO
 		paciente.setNombre("María Actualizada");
 		paciente.setApellido("Lopez Actualizada");
@@ -134,6 +140,7 @@ class ApplicationTests {
 
 	/***** TEST PARA LISTAR TODOS LOS PACIENTES *****/
 	@Test
+	@Order(7)
 	void listarTodosLosPacientes() {
 		//DADO - Pacientes ya creados en setUp
 
@@ -147,6 +154,7 @@ class ApplicationTests {
 
 	/***** TEST PARA AGREGAR ODONTOLOGO *****/
 	@Test
+	@Order(2)
 	public void agregarOdontologo() {
 		//DADO
 		Odontologo odontologo = new Odontologo();
@@ -167,6 +175,7 @@ class ApplicationTests {
 
 	/***** TEST PARA BUSCAR ODONTOLOGO POR MATRICULA *****/
 	@Test
+	@Order(6)
 	void buscarOdontologoPorMatricula() {
 		//DADO
 		Integer numeroMatricula = odontologo.getNumeroMatricula();
@@ -183,25 +192,36 @@ class ApplicationTests {
 
 	/***** TEST PARA GUARDAR TURNO *****/
 	@Test
+	@Order(3)
 	void guardarTurno() {
-		//DADO
+		// DADO
+		Paciente paciente = new Paciente();
+		paciente.setId(1);
+
+		Odontologo odontologo = new Odontologo();
+		odontologo.setId(1);
+
 		TurnoDTO turnoDTO = new TurnoDTO();
 		turnoDTO.setPaciente(paciente);
 		turnoDTO.setOdontologo(odontologo);
 		turnoDTO.setFecha(LocalDate.of(2023, 6, 15));
+		turnoDTO.setHora(LocalTime.of(10, 30));
 
-		//CUANDO
+		// CUANDO
 		Turno turnoGuardado = turnoService.guardarTurno(turnoDTO);
 
-		//ENTONCES
+		// ENTONCES
 		Assertions.assertNotNull(turnoGuardado);
 		Assertions.assertNotNull(turnoGuardado.getId());
 		Assertions.assertEquals(paciente.getId(), turnoGuardado.getPaciente().getId());
 		Assertions.assertEquals(odontologo.getId(), turnoGuardado.getOdontologo().getId());
+		Assertions.assertEquals(turnoDTO.getFecha(), turnoGuardado.getFecha());
+		Assertions.assertEquals(turnoDTO.getHora(), turnoGuardado.getHora());
 	}
 
 	/***** TEST PARA BUSCAR TURNO POR ID *****/
 	@Test
+	@Order(4)
 	void buscarTurnoPorId() {
 		//DADO
 		TurnoDTO turnoDTO = new TurnoDTO();
@@ -220,6 +240,7 @@ class ApplicationTests {
 
 	/***** TEST PARA ACTUALIZAR TURNO *****/
 	@Test
+	@Order(5)
 	void actualizarTurno() throws BadRequestException {
 		//DADO
 		TurnoDTO turnoDTO = new TurnoDTO();
@@ -244,6 +265,7 @@ class ApplicationTests {
 
 	/***** TEST PARA ELIMINAR PACIENTE *****/
 	@Test
+	@Order(10)
 	void eliminarPaciente() {
 		//DADO
 		Integer pacienteId = paciente.getId();
@@ -258,6 +280,7 @@ class ApplicationTests {
 
 	/***** TEST PARA ELIMINAR ODONTÓLOGO *****/
 	@Test
+	@Order(11)
 	void eliminarOdontologo() {
 		//DADO
 		Integer odontologoId = odontologo.getId();
@@ -272,6 +295,7 @@ class ApplicationTests {
 
 	/***** TEST PARA ELIMINAR TURNO *****/
 	@Test
+	@Order(12)
 	void eliminarTurno() {
 		//DADO
 		TurnoDTO turnoDTO = new TurnoDTO();

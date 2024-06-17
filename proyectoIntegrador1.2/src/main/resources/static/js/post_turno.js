@@ -7,7 +7,7 @@ window.addEventListener('load', function () {
         const formData = obtenerDatosFormulario();
 
         if (!esDatoUnico(formData)) {
-            mostrarMensajeError('El turno ya esta registrado.');
+            mostrarMensajeError('El turno ya está registrado.');
             return;
         }
 
@@ -23,7 +23,8 @@ window.addEventListener('load', function () {
             odontologo: {
                 id: document.querySelector('#odontologoId').value
             },
-            fecha: document.querySelector('#fecha').value
+            fecha: document.querySelector('#fecha').value,
+            hora: document.querySelector('#hora').value
         };
     }
 
@@ -37,33 +38,33 @@ window.addEventListener('load', function () {
         };
     }
 
-function registrarTurno(settings) {
-    fetch('/turnos/registrar', settings)
-        .then(async response => {
-            if (!response.ok) {
-                const errorText = await response.text();
-                throw new Error("Error en la respuesta del servidor: " + errorText);
-            }
-            const data = await response.json();
-            turnosRegistrados.push(data); //agregar turno registrado a la lista
-            mostrarMensajeExito();
-        })
-        .catch(error => {
-            if (error.message.includes('404')) {
-                mostrarMensajeError('ID de paciente u odontologo no encontrado.');
-            } else {
-                console.error("Error al registrar turno:", error);
-                mostrarMensajeError('Error al comunicarse con el servidor.');
-            }
-        });
-}
-
+    function registrarTurno(settings) {
+        fetch('/turnos/registrar', settings)
+            .then(async response => {
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error("Error en la respuesta del servidor: " + errorText);
+                }
+                const data = await response.json();
+                turnosRegistrados.push(data); //agregar turno registrado a la lista
+                mostrarMensajeExito();
+            })
+            .catch(error => {
+                if (error.message.includes('404')) {
+                    mostrarMensajeError('ID de paciente u odontólogo no encontrado.');
+                } else {
+                    console.error("Error al registrar turno:", error);
+                    mostrarMensajeError('Error al comunicarse con el servidor.');
+                }
+            });
+    }
 
     function esDatoUnico(formData) {
         for (let turno of turnosRegistrados) {
             if (turno.paciente.id === formData.paciente.id &&
                 turno.odontologo.id === formData.odontologo.id &&
-                turno.fecha === formData.fecha) {
+                turno.fecha === formData.fecha &&
+                turno.hora === formData.hora) {
                 return false;
             }
         }

@@ -34,11 +34,12 @@ window.addEventListener('load', function () {
                                    '</a>';
 
                 turnoRow.innerHTML = '<td>' + infoButton + '</td>' +
-                    '<td class=\"td_paciente_id\">' + turno.paciente.id + '</td>' +
-                    '<td class=\"td_odontologo_id\">' + turno.odontologo.id + '</td>' +
-                    '<td class=\"td_fecha\">' + turno.fecha + '</td>' +
+                    '<td class="td_paciente_id">' + turno.paciente.id + '</td>' +
+                    '<td class="td_odontologo_id">' + turno.odontologo.id + '</td>' +
+                    '<td class="td_fecha">' + turno.fecha + ' ' + turno.hora + '</td>' +
                     '<td>' + updateButton + '</td>' +
                     '<td>' + deleteButton + '</td>';
+
             }
         })
     })();

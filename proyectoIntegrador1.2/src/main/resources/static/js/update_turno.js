@@ -13,6 +13,7 @@ window.addEventListener('load', function () {
                     document.querySelector('#pacienteId').value = turno.paciente.id;
                     document.querySelector('#odontologoId').value = turno.odontologo.id;
                     document.querySelector('#fecha').value = turno.fecha;
+                    document.querySelector('#hora').value = turno.hora;
                 }
             })
             .catch(error => console.error('Error al obtener los datos del turno:', error));
@@ -30,6 +31,7 @@ window.addEventListener('load', function () {
         return {
             id: parseInt(document.querySelector('#id').value),
             fecha: document.querySelector('#fecha').value,
+            hora: document.querySelector('#hora').value,
             paciente: {
                 id: parseInt(document.querySelector('#pacienteId').value)
             },
