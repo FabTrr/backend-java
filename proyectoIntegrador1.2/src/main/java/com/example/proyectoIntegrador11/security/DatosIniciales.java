@@ -17,11 +17,16 @@ public class DatosIniciales implements ApplicationRunner {
     private BCryptPasswordEncoder passwordEncoder;
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        String passSinCifrar= "admin";
-        String passCifrado= passwordEncoder.encode(passSinCifrar);
-        Usuario usuario= new Usuario("jorgito", UsuarioRole.ROLE_USER,passCifrado,"admin@admin.com","jpereyradh");
-        System.out.println("pass cifrado: "+passCifrado);
-        usuarioRepository.save(usuario);
+        String passSinCifrarUser = "user";
+        String passCifradoUser = passwordEncoder.encode(passSinCifrarUser);
+        Usuario usuarioUser = new Usuario("usuarioUser", UsuarioRole.ROLE_USER, passCifradoUser, "user@user.com", "user");
+
+        String passSinCifrarAdmin = "admin";
+        String passCifradoAdmin = passwordEncoder.encode(passSinCifrarAdmin);
+        Usuario usuarioAdmin = new Usuario("usuarioAdmin", UsuarioRole.ROLE_ADMIN, passCifradoAdmin, "admin@admin.com", "admin");
+
+        usuarioRepository.save(usuarioUser);
+        usuarioRepository.save(usuarioAdmin);
 
     }
 }

@@ -71,9 +71,8 @@ public class Usuario implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        //este metodo permite saber cuales son las autirizaciones que tiene el usuario en cuestion
+        //para saber cuales son las autorizaciones que tiene el usuario
         SimpleGrantedAuthority simpleGrantedAuthority= new SimpleGrantedAuthority(usuarioRole.name());
-
         return Collections.singletonList(simpleGrantedAuthority);
     }
 

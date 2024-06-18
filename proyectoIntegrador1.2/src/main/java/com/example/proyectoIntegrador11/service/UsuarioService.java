@@ -14,7 +14,7 @@ import java.util.Optional;
 public class UsuarioService implements UserDetailsService {
     @Autowired
     private UsuarioRepository usuarioRepository;
-    //aca deberia venir la autenticacion
+    //aca viene la autenticacion
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<Usuario> usuarioBuscado = usuarioRepository.findByEmail(username);

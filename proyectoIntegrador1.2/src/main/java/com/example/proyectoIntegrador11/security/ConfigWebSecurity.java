@@ -10,6 +10,7 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -36,9 +37,11 @@ public class ConfigWebSecurity {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http
-            .authorizeHttpRequests((authz) -> authz
-                .requestMatchers("/post_pacientes.html").hasRole("USER")
-                    .requestMatchers("/post_odontologos.html","/get_odontologos.html").hasRole("ADMIN")
+                .csrf(AbstractHttpConfigurer::disable)
+                .authorizeHttpRequests((authz) -> authz
+
+                    .requestMatchers("/index.html", "/post_turnos.html").hasRole("USER")
+                    .requestMatchers("/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
             )
                 .formLogin(withDefaults())
