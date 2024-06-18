@@ -71,18 +71,18 @@ class ApplicationTests {
 	public void agregarPaciente() {
 		// DADO
 		Domicilio domicilio = new Domicilio();
-		domicilio.setCalle("Calle A");
-		domicilio.setNumero(123);
-		domicilio.setLocalidad("Springfield");
-		domicilio.setProvincia("Provincia Falsa");
+		domicilio.setCalle("Castillo de Bran");
+		domicilio.setNumero(24);
+		domicilio.setLocalidad("Transilvania");
+		domicilio.setProvincia("Brasov");
 
 		Paciente paciente = new Paciente();
-		paciente.setNombre("Maria");
-		paciente.setApellido("Dientes");
-		paciente.setCedula("121212");
-		paciente.setFechaIngreso(LocalDate.of(2023, 1, 1));
+		paciente.setNombre("Conde");
+		paciente.setApellido("Dracula");
+		paciente.setCedula("111111");
+		paciente.setFechaIngreso(LocalDate.of(1885, 1, 1));
 		paciente.setDomicilio(domicilio);
-		paciente.setEmail("hola@maria.com");
+		paciente.setEmail("hola@soydracula.com");
 
 		// CUANDO
 		Paciente pacienteGuardado = pacienteService.guardarPaciente(paciente);
@@ -90,16 +90,16 @@ class ApplicationTests {
 		// ENTONCES
 		Assertions.assertNotNull(pacienteGuardado);
 		Assertions.assertNotNull(pacienteGuardado.getId());
-		Assertions.assertEquals("Maria", pacienteGuardado.getNombre());
-		Assertions.assertEquals("Dientes", pacienteGuardado.getApellido());
-		Assertions.assertEquals("121212", pacienteGuardado.getCedula());
-		Assertions.assertEquals(LocalDate.of(2023, 1, 1), pacienteGuardado.getFechaIngreso());
+		Assertions.assertEquals("Conde", pacienteGuardado.getNombre());
+		Assertions.assertEquals("Dracula", pacienteGuardado.getApellido());
+		Assertions.assertEquals("111111", pacienteGuardado.getCedula());
+		Assertions.assertEquals(LocalDate.of(1885, 1, 1), pacienteGuardado.getFechaIngreso());
 		Assertions.assertNotNull(pacienteGuardado.getDomicilio());
-		Assertions.assertEquals("Calle A", pacienteGuardado.getDomicilio().getCalle());
-		Assertions.assertEquals(123, pacienteGuardado.getDomicilio().getNumero());
-		Assertions.assertEquals("Springfield", pacienteGuardado.getDomicilio().getLocalidad());
-		Assertions.assertEquals("Provincia Falsa", pacienteGuardado.getDomicilio().getProvincia());
-		Assertions.assertEquals("hola@maria.com", pacienteGuardado.getEmail());
+		Assertions.assertEquals("Castillo de Bran", pacienteGuardado.getDomicilio().getCalle());
+		Assertions.assertEquals(24, pacienteGuardado.getDomicilio().getNumero());
+		Assertions.assertEquals("Transilvania", pacienteGuardado.getDomicilio().getLocalidad());
+		Assertions.assertEquals("Brasov", pacienteGuardado.getDomicilio().getProvincia());
+		Assertions.assertEquals("hola@soydracula.com", pacienteGuardado.getEmail());
 	}
 
 	/***** TEST PARA BUSCAR PACIENTE POR EMAIL *****/
@@ -158,7 +158,7 @@ class ApplicationTests {
 		// DADO
 		Odontologo odontologo = new Odontologo();
 		odontologo.setNombre("Juan");
-		odontologo.setApellido("Muelas");
+		odontologo.setApellido("Colmillos");
 		odontologo.setNumeroMatricula(1212);
 
 		// CUANDO
@@ -168,14 +168,36 @@ class ApplicationTests {
 		Assertions.assertNotNull(odontologoGuardado);
 		Assertions.assertNotNull(odontologoGuardado.getId());
 		Assertions.assertEquals("Juan", odontologoGuardado.getNombre());
-		Assertions.assertEquals("Muelas", odontologoGuardado.getApellido());
+		Assertions.assertEquals("Colmillos", odontologoGuardado.getApellido());
 		Assertions.assertEquals(1212, odontologoGuardado.getNumeroMatricula());
+	}
+
+	/***** TEST PARA ACTUALIZAR UN ODONTOLOGO *****/
+	@Test
+	@Order(13)
+	void actualizarOdontologo() {
+
+		// DADO
+		odontologo.setNombre("Carlos");
+		odontologo.setApellido("Dientes");
+		odontologo.setNumeroMatricula(959595);
+
+		// CUANDO
+		odontologoService.actualizarOdontologo(odontologo);
+		Optional<Odontologo> odontologoActualizado = odontologoService.buscarOdontologoPorId(odontologo.getId());
+
+		// ENTONCES
+		Assertions.assertTrue(odontologoActualizado.isPresent());
+		Assertions.assertEquals("Carlos", odontologoActualizado.get().getNombre());
+		Assertions.assertEquals("Dientes", odontologoActualizado.get().getApellido());
+		Assertions.assertEquals(959595, odontologoActualizado.get().getNumeroMatricula());
 	}
 
 	/***** TEST PARA BUSCAR ODONTOLOGO POR MATRICULA *****/
 	@Test
 	@Order(6)
 	void buscarOdontologoPorMatricula() {
+
 		// DADO
 		Integer numeroMatricula = odontologo.getNumeroMatricula();
 
@@ -193,6 +215,7 @@ class ApplicationTests {
 	@Test
 	@Order(3)
 	void guardarTurno() {
+
 		// DADO
 		TurnoDTO turnoDTO = new TurnoDTO();
 		turnoDTO.setPaciente(paciente);
@@ -216,6 +239,7 @@ class ApplicationTests {
 	@Test
 	@Order(4)
 	void buscarTurnoPorId() {
+
 		// DADO
 		TurnoDTO turnoDTO = new TurnoDTO();
 		turnoDTO.setPaciente(paciente);
@@ -307,5 +331,4 @@ class ApplicationTests {
 		// ENTONCES
 		Assertions.assertFalse(turnoEliminado.isPresent());
 	}
-
 }
