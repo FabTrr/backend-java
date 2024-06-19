@@ -26,7 +26,7 @@ public class ConfigWebSecurity {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @Bean //este metodo provee de la autenticacion de la aplicacion
+    @Bean // metodo para proveer la autenticacion de la aplicacion
     public DaoAuthenticationProvider daoAuthenticationProvider(){
         DaoAuthenticationProvider provider= new DaoAuthenticationProvider();
         provider.setPasswordEncoder(bCryptPasswordEncoder);
@@ -39,13 +39,13 @@ public class ConfigWebSecurity {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((authz) -> authz
-
-                    .requestMatchers("/index.html", "/post_turnos.html").hasRole("USER")
-                    .requestMatchers("/**").hasRole("ADMIN")
+                        .requestMatchers("/post_odontologos.html","/get_odontologos.html", "/post_turnos.html", "/post_pacientes.html", "/get_pacientes.html").hasRole("ADMIN")
+                        .requestMatchers("/odontologos/**", "/pacientes/**", "/turnos/registrar").hasRole("ADMIN")
                 .anyRequest().authenticated()
             )
                 .formLogin(withDefaults())
                 .logout(withDefaults());
+
         return http.build();
     }
 
