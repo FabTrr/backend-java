@@ -20,7 +20,7 @@ public class PacienteController {
     private PacienteService pacienteService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Paciente> buscarPacienteId(@PathVariable("id") Integer id) {
+    public ResponseEntity<Paciente> bucarPacienteId(@PathVariable("id") Long id) {
         Optional<Paciente> paciente = pacienteService.buscarPacientePorId(id);
         if (paciente.isPresent()) {
             return ResponseEntity.ok(paciente.get());
@@ -29,7 +29,7 @@ public class PacienteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminarPacienteId(@PathVariable("id") Integer id) throws ResourceNotFoundException {
+    public ResponseEntity<String> eliminarPacienteId(@PathVariable("id") Long id) throws ResourceNotFoundException {
         Optional<Paciente> paciente = pacienteService.buscarPacientePorId(id);
         if (paciente.isPresent()) {
             pacienteService.eliminarPaciente(id);

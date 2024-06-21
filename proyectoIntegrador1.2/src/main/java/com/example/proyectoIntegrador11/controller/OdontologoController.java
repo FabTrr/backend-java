@@ -19,7 +19,7 @@ public class OdontologoController {
     private OdontologoService odontologoService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Odontologo> buscarPorId(@PathVariable("id") Integer id) {
+    public ResponseEntity<Odontologo> buscarPorId(@PathVariable("id") Long id) {
         Optional<Odontologo> odontologoBuscado = odontologoService.buscarOdontologoPorId(id);
         if (odontologoBuscado.isPresent()) {
             return ResponseEntity.ok(odontologoBuscado.get());
@@ -31,7 +31,7 @@ public class OdontologoController {
     public ResponseEntity<Odontologo> registrar(@RequestBody Odontologo odontologo) throws BadRequestException {
         Optional<Odontologo> odontologoBuscado = odontologoService.buscarOdontologoPorMatricula(odontologo.getNumeroMatricula());
         if (odontologoBuscado.isPresent()) {
-            throw new BadRequestException("El odontologo ya esta registrado con la matricula ingresada");
+            throw new BadRequestException("El odontologo ya está registrado con la matricula ingresada");
         }
         return ResponseEntity.ok(odontologoService.guardarOdontologo(odontologo));
     }
@@ -47,7 +47,7 @@ public class OdontologoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminar(@PathVariable("id") Integer id) throws ResourceNotFoundException {
+    public ResponseEntity<String> eliminar(@PathVariable("id") Long id) throws ResourceNotFoundException {
         Optional<Odontologo> odontologo = odontologoService.buscarOdontologoPorId(id);
         if (odontologo.isPresent()) {
             odontologoService.eliminarOdontologo(id);
