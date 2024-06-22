@@ -35,18 +35,19 @@ public class ConfigWebSecurity {
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((authz) -> authz
-                        .requestMatchers("/post_odontologos.html","/get_odontologos.html", "/post_turnos.html", "/post_pacientes.html", "/get_pacientes.html").hasRole("ADMIN")
-                        .requestMatchers("/odontologos/**", "/pacientes/**", "/turnos/registrar").hasRole("ADMIN")
-                .anyRequest().authenticated()
-            )
+                        .requestMatchers("/post_turnos.html", "/turnos/registrar").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers("/post_odontologos.html", "/get_odontologos.html", "/post_pacientes.html", "/get_pacientes.html", "/odontologos/**", "/pacientes/**", "/turnos/**").hasRole("ADMIN")
+                        .anyRequest().authenticated()
+                )
                 .formLogin(withDefaults())
                 .logout(withDefaults());
 
         return http.build();
     }
+
 
 }
