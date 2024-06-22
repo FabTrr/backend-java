@@ -1,6 +1,6 @@
 window.addEventListener('load', function () {
     const formulario = document.querySelector('#add_new_turno');
-    let turnosRegistrados = []; //array para almacenar turnos registrados
+    let turnosRegistrados = []; // Array para almacenar turnos registrados
 
     formulario.addEventListener('submit', function (event) {
         event.preventDefault();
@@ -46,8 +46,9 @@ window.addEventListener('load', function () {
                     throw new Error("Error en la respuesta del servidor: " + errorText);
                 }
                 const data = await response.json();
-                turnosRegistrados.push(data); //agregar turno registrado a la lista
+                turnosRegistrados.push(data);
                 mostrarMensajeExito();
+                formulario.reset(); // Aquí se resetea el formulario
             })
             .catch(error => {
                 if (error.message.includes('404')) {

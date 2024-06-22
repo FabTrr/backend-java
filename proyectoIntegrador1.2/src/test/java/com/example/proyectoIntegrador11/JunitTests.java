@@ -1,8 +1,6 @@
 package com.example.proyectoIntegrador11;
 
 import com.example.proyectoIntegrador11.entity.*;
-
-import com.example.proyectoIntegrador11.exception.BadRequestException;
 import com.example.proyectoIntegrador11.service.OdontologoService;
 import com.example.proyectoIntegrador11.service.PacienteService;
 import com.example.proyectoIntegrador11.service.TurnoService;
@@ -21,6 +19,11 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
+/***** >>> TESTS DEL 1 AL 4 PRUEBAS EN PACIENTES *****/
+/***** >>> TESTS DEL 5 AL 8 PRUEBAS EN ODONTOLOGOS *****/
+/***** >>> TESTS DEL 9 AL 11 PRUEBAS EN TURNOS *****/
+/***** >>> TESTS DEL 12 AL 14 TAREAS DE ELIMINACION *****/
+
 @SpringBootTest
 @Transactional
 @Rollback
@@ -37,6 +40,8 @@ class JunitTests {
 
     private Paciente paciente;
     private Odontologo odontologo;
+
+    /***** CARGA DE DATOS *****/
 
     @BeforeEach
     void setUp() {
@@ -65,6 +70,7 @@ class JunitTests {
 
     /***** TEST PARA AGREGAR PACIENTE *****/
     @Test
+    @Order(1)
     public void agregarPaciente() {
         // DADO
         Domicilio domicilio = new Domicilio();
@@ -101,6 +107,7 @@ class JunitTests {
 
     /***** TEST PARA BUSCAR PACIENTE POR EMAIL *****/
     @Test
+    @Order(2)
     void buscarPacientePorEmail() {
         // DADO
         String email = paciente.getEmail();
@@ -117,6 +124,7 @@ class JunitTests {
 
     /***** TEST PARA ACTUALIZAR UN PACIENTE *****/
     @Test
+    @Order(3)
     void actualizarPaciente() {
         // DADO
         paciente.setNombre("Maria");
@@ -134,6 +142,7 @@ class JunitTests {
 
     /***** TEST PARA LISTAR TODOS LOS PACIENTES *****/
     @Test
+    @Order(4)
     void listarTodosLosPacientes() {
         // DADO - Pacientes ya creados en setUp
 
@@ -145,8 +154,23 @@ class JunitTests {
         Assertions.assertTrue(pacientes.contains(paciente));
     }
 
+    /***** TEST PARA ELIMINAR PACIENTE *****/
+    @Test
+    @Order(14)
+    void eliminarPaciente() {
+        // DADO - paciente ya guardado en setup
+
+        // CUANDO
+        pacienteService.eliminarPaciente(paciente.getId());
+
+        // ENTONCES
+        Optional<Paciente> pacienteEliminado = pacienteService.buscarPacientePorId(paciente.getId());
+        Assertions.assertFalse(pacienteEliminado.isPresent(), "El paciente no debería existir después de eliminarlo");
+    }
+
     /***** TEST PARA AGREGAR ODONTOLOGO *****/
     @Test
+    @Order(5)
     public void agregarOdontologo() {
         // DADO
         Odontologo odontologo = new Odontologo();
@@ -167,6 +191,7 @@ class JunitTests {
 
     /***** TEST PARA ACTUALIZAR UN ODONTOLOGO *****/
     @Test
+    @Order(6)
     void actualizarOdontologo() {
 
         // DADO
@@ -187,6 +212,7 @@ class JunitTests {
 
     /***** TEST PARA BUSCAR ODONTOLOGO POR MATRICULA *****/
     @Test
+    @Order(7)
     void buscarOdontologoPorMatricula() {
 
         // DADO
@@ -202,7 +228,38 @@ class JunitTests {
         Assertions.assertEquals("Gomez", odontologoBuscado.get().getApellido());
     }
 
+    /***** TEST PARA LISTAR ODONTOLOGOS *****/
+
     @Test
+    @Order(8)
+    void listarOdontologos() {
+        // CUANDO
+        List<Odontologo> odontologos = odontologoService.buscarOdontologos();
+
+        // ENTONCES
+        Assertions.assertFalse(odontologos.isEmpty());
+        Assertions.assertTrue(odontologos.contains(odontologo));
+    }
+
+    /***** TEST PARA ELIMINAR ODONTOLOGO *****/
+
+    @Test
+    @Order(13)
+    void eliminarOdontologo() {
+        // DADO - odontologo ya guardado en setup
+
+        // CUANDO
+        odontologoService.eliminarOdontologo(odontologo.getId());
+
+        // ENTONCES
+        Optional<Odontologo> odontologoEliminado = odontologoService.buscarOdontologoPorId(odontologo.getId());
+        Assertions.assertFalse(odontologoEliminado.isPresent(), "El odontólogo no existe");
+    }
+
+    /***** TEST PARA AGREGAR TURNO *****/
+
+    @Test
+    @Order(9)
     public void registrarTurno() {
         // DADO
         Turno turno = new Turno();
@@ -223,4 +280,79 @@ class JunitTests {
         Assertions.assertEquals(turno.getHora(), turnoDTO.getHora());
     }
 
+    /***** TEST PARA BUSCAR TURNO POR ID *****/
+
+    @Test
+    @Order(10)
+    public void buscarTurnoPorId() {
+        // DADO
+        Turno turno = new Turno();
+        turno.setPaciente(paciente);
+        turno.setOdontologo(odontologo);
+        turno.setFecha(LocalDate.of(2023, 6, 15));
+        turno.setHora(LocalTime.of(10, 30));
+
+        TurnoDTO turnoDTO = turnoService.registrarTurno(turno);
+
+        // CUANDO
+        Optional<TurnoDTO> turnoBuscado = turnoService.buscarTurnoId(turnoDTO.getId());
+
+        // ENTONCES
+        Assertions.assertTrue(turnoBuscado.isPresent());
+        Assertions.assertEquals(turnoDTO.getId(), turnoBuscado.get().getId());
+        Assertions.assertEquals(turno.getFecha(), turnoBuscado.get().getFecha());
+        Assertions.assertEquals(turno.getHora(), turnoBuscado.get().getHora());
+        Assertions.assertEquals(turno.getPaciente().getId(), turnoBuscado.get().getPacienteId());
+        Assertions.assertEquals(turno.getOdontologo().getId(), turnoBuscado.get().getOdontologoId());
+    }
+
+    /***** TEST PARA ACTUALIZAR TURNO *****/
+
+    @Test
+    @Order(11)
+    public void actualizarTurno() {
+        // DADO
+        Turno turno = new Turno();
+        turno.setPaciente(paciente);
+        turno.setOdontologo(odontologo);
+        turno.setFecha(LocalDate.of(2023, 6, 15));
+        turno.setHora(LocalTime.of(10, 30));
+
+        TurnoDTO turnoDTO = turnoService.registrarTurno(turno);
+
+        // aqui actualizamos fecha y hora del turno
+        turnoDTO.setFecha(LocalDate.of(2023, 7, 20));
+        turnoDTO.setHora(LocalTime.of(11, 0));
+
+        // CUANDO
+        turnoService.actualizarTurno(turnoDTO);
+
+        // ENTONCES
+        Optional<TurnoDTO> turnoActualizado = turnoService.buscarTurnoId(turnoDTO.getId());
+        Assertions.assertTrue(turnoActualizado.isPresent());
+        Assertions.assertEquals(turnoDTO.getFecha(), turnoActualizado.get().getFecha());
+        Assertions.assertEquals(turnoDTO.getHora(), turnoActualizado.get().getHora());
+    }
+
+    /***** TEST PARA ELIMINAR TURNO *****/
+
+    @Test
+    @Order(12)
+    public void eliminarTurno() {
+        // DADO
+        Turno turno = new Turno();
+        turno.setPaciente(paciente);
+        turno.setOdontologo(odontologo);
+        turno.setFecha(LocalDate.of(2023, 6, 15));
+        turno.setHora(LocalTime.of(10, 30));
+
+        TurnoDTO turnoDTO = turnoService.registrarTurno(turno);
+
+        // CUANDO
+        turnoService.eliminarTurno(turnoDTO.getId());
+
+        // ENTONCES
+        Optional<TurnoDTO> turnoEliminado = turnoService.buscarTurnoId(turnoDTO.getId());
+        Assertions.assertFalse(turnoEliminado.isPresent());
+    }
 }

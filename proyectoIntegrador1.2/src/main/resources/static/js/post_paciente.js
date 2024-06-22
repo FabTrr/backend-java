@@ -7,7 +7,7 @@ window.addEventListener('load', function () {
         const formData = obtenerDatosFormulario();
 
         if (!esDatoUnico(formData)) {
-            mostrarMensajeError('El cedula o email ya está registrado.');
+            mostrarMensajeError('La cédula o email ya está registrado.');
             return;
         }
 
@@ -44,17 +44,22 @@ window.addEventListener('load', function () {
     function registrarPaciente(settings) {
         fetch('/pacientes/registrar', settings)
             .then(async response => {
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    throw new Error("Error en la respuesta del servidor: " + errorText);
+                if (response.ok) {
+                    const data = await response.json();
+                    pacientesRegistrados.push(data);
+                    mostrarMensajeExito();
+                } else {
+                    if (response.status === 400) {
+                        throw new Error('Cédula o email ya registrados. Intente con otros datos.');
+                    } else {
+                        const errorText = await response.text();
+                        throw new Error("Error en la respuesta del servidor: " + errorText);
+                    }
                 }
-                const data = await response.json();
-                pacientesRegistrados.push(data); // Agregar paciente registrado a la lista
-                mostrarMensajeExito();
             })
             .catch(error => {
                 console.error("Error al registrar paciente:", error);
-                mostrarMensajeError();
+                mostrarMensajeError(error.message);
             });
     }
 
@@ -91,7 +96,7 @@ window.addEventListener('load', function () {
         let pathname = window.location.pathname;
         if (pathname === "/") {
             document.querySelector(".nav .nav-item a:first").classList.add("active");
-        } else if (pathname == "/get_pacientes.html") {
+        } else if (pathname === "/get_pacientes.html") {
             document.querySelector(".nav .nav-item a:last").classList.add("active");
         }
     })();

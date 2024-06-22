@@ -10,8 +10,8 @@ window.addEventListener('load', function () {
             .then(turno => {
                 if (turno) {
                     document.querySelector('#id').value = turno.id;
-                    document.querySelector('#pacienteId').value = turno.paciente.id;
-                    document.querySelector('#odontologoId').value = turno.odontologo.id;
+                    document.querySelector('#pacienteId').value = turno.pacienteId;
+                    document.querySelector('#odontologoId').value = turno.odontologoId;
                     document.querySelector('#fecha').value = turno.fecha;
                     document.querySelector('#hora').value = turno.hora;
                 }
@@ -23,21 +23,22 @@ window.addEventListener('load', function () {
         event.preventDefault();
         const formData = obtenerDatosFormulario();
 
+        if (!formData.pacienteId || !formData.odontologoId) {
+            mostrarMensajeError("Debe seleccionar un paciente y un odontólogo válidos.");
+            return;
+        }
+
         const settings = crearConfiguracionFetch(formData);
         actualizarTurno(settings);
     });
 
     function obtenerDatosFormulario() {
         return {
-            id: parseInt(document.querySelector('#id').value),
+            id: parseInt(document.querySelector('#id').value), // Asegúrate de obtener el ID correctamente
             fecha: document.querySelector('#fecha').value,
             hora: document.querySelector('#hora').value,
-            paciente: {
-                id: parseInt(document.querySelector('#pacienteId').value)
-            },
-            odontologo: {
-                id: parseInt(document.querySelector('#odontologoId').value)
-            }
+            pacienteId: parseInt(document.querySelector('#pacienteId').value), // Asegúrate de obtener el pacienteId correctamente
+            odontologoId: parseInt(document.querySelector('#odontologoId').value) // Asegúrate de obtener el odontologoId correctamente
         };
     }
 
@@ -53,7 +54,13 @@ window.addEventListener('load', function () {
 
     function actualizarTurno(settings) {
         fetch(`/turnos/actualizar`, settings)
-            .then(response => response.text())
+            .then(response => {
+                if (response.ok) {
+                    return response.text();
+                } else {
+                    throw new Error('Error al actualizar turno');
+                }
+            })
             .then(text => {
                 console.log(text);
                 mostrarMensajeExito(text);

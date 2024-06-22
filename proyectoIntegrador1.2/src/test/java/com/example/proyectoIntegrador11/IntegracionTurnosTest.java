@@ -43,6 +43,18 @@ public class IntegracionTurnosTest {
     }
 
     @Test
+    public void eliminarTurno() throws Exception {
+        Long idTurnoExistente = 1L;
+
+        mockMvc.perform(MockMvcRequestBuilders.delete("/turnos/" + idTurnoExistente))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string("Turno eliminado"));
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/turnos/" + idTurnoExistente))
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
+    }
+
+    @Test
     public void listarTodosLosTurnos() throws Exception{
         cargarDatos();
         MvcResult respuesta= mockMvc.perform(MockMvcRequestBuilders.get("/turnos").accept(MediaType.APPLICATION_JSON))

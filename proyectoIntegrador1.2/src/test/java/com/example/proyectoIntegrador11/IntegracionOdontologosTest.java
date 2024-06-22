@@ -11,6 +11,8 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
@@ -36,4 +38,22 @@ public class IntegracionOdontologosTest {
         assertTrue(respuesta.getResponse().getContentAsString().contains("Juan"));
         assertTrue(respuesta.getResponse().getContentAsString().contains("Lopez"));
     }
+
+    @Test
+    public void listarTodosLosOdontologos() throws Exception {
+        String odontologoJson = "{ \"nombre\": \"Maria\", \"apellido\": \"Lopez\", \"numeroMatricula\": \"121212\" } }";
+        mockMvc.perform(MockMvcRequestBuilders.post("/odontologos/registrar")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(odontologoJson))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+
+        MvcResult respuesta = mockMvc.perform(MockMvcRequestBuilders.get("/odontologos")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+
+        assertTrue(respuesta.getResponse().getContentAsString().contains("Maria"));
+    }
+
 }

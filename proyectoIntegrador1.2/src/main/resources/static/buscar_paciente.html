@@ -58,12 +58,15 @@
     <a href="/logout" class="btn btn-danger logout-btn">Logout</a>
 </nav>
 
-<div class="container mt-5">
+<div class="container mt-3">
     <h1>Buscar un Paciente</h1>
+    <hr>
     <form id="searchForm">
         <div class="form-group">
-            <label for="pacienteId">Ingrese ID del paciente</label>
-            <input type="number" class="form-control" id="pacienteId" required>
+            <label for="pacienteId" class="col-sm-2 col-form-label">Ingrese ID del paciente</label>
+            <div class="col-sm-4">
+                <input type="number" class="form-control" id="pacienteId" required>
+            </div>
         </div>
         <button type="submit" class="btn btn-primary">Buscar</button>
     </form>

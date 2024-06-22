@@ -17,7 +17,7 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
                 <h3>Detalles del Odontólogo:</h3>
                 <p>Nombre: ${data.nombre}</p>
                 <p>Apellido: ${data.apellido}</p>
-                <p>Matrícula: ${data.matricula}</p>
+                <p>Matrícula: ${data.numeroMatricula}</p>
             `;
         })
         .catch(error => {

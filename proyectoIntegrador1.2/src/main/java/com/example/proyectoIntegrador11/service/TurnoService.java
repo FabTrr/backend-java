@@ -36,8 +36,9 @@ public class TurnoService {
     public void eliminarTurno(Long id){
         turnoRepository.deleteById(id);
     }
-    public void actualizarTurno(TurnoDTO turnoDTO){
-        turnoRepository.save(turnodtoAturno(turnoDTO));
+    public void actualizarTurno(TurnoDTO turnoDTO) {
+        Turno turnoActualizado = turnodtoAturno(turnoDTO);
+        turnoRepository.save(turnoActualizado);
     }
 
     public TurnoDTO turnoAturnoDTO(Turno turno){

@@ -58,17 +58,20 @@
     <a href="/logout" class="btn btn-danger logout-btn">Logout</a>
 </nav>
 
-<div class="container mt-5">
+<div class="container mt-3">
     <h1>Buscar un Turno</h1>
+    <hr>
     <form id="searchForm">
         <div class="form-group">
-            <label for="turnoId">Ingrese ID del turno</label>
-            <input type="number" class="form-control" id="turnoId" required>
+            <label for="turnoId" class="col-sm-2 col-form-label">Ingrese ID del turno</label>
+            <div class="col-sm-4">
+                <input type="number" class="form-control" id="turnoId" required>
+            </div>
         </div>
         <button type="submit" class="btn btn-primary">Buscar</button>
     </form>
     <div id="result" class="mt-4"></div>
 </div>
-<script src="/js/buscar_turno.js"></script>
+<script src="js/buscar_turno.js"></script>
 </body>
 </html>

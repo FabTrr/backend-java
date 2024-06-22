@@ -17,8 +17,6 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
                 <h3>Detalles del Turno:</h3>
                 <p>Fecha: ${data.fecha}</p>
                 <p>Hora: ${data.hora}</p>
-                <p>Paciente: ${data.paciente.nombre} ${data.paciente.apellido}</p>
-                <p>Odontólogo: ${data.odontologo.nombre} ${data.odontologo.apellido}</p>
             `;
         })
         .catch(error => {

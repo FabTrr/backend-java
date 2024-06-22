@@ -69,11 +69,28 @@ public class TurnoController {
 
     @PutMapping("/actualizar")
     public ResponseEntity<String> actualizarTurno(@RequestBody TurnoDTO turnoDTO) {
-        Optional<TurnoDTO> actualizarTurno = turnoService.buscarTurnoId(turnoDTO.getId());
-        if (actualizarTurno.isPresent()) {
-            turnoService.actualizarTurno(turnoDTO);
-            return ResponseEntity.ok("Turno actualizado");
+        if (turnoDTO.getId() == null) {
+            return ResponseEntity.badRequest().body("El ID del turno no puede ser nulo");
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Turno no encontrado");
+
+        Optional<TurnoDTO> turnoExistente = turnoService.buscarTurnoId(turnoDTO.getId());
+        if (turnoExistente.isPresent()) {
+            // Cargar el Odontologo desde la base de datos usando el ID
+            Optional<Odontologo> odontologo = odontologoService.buscarOdontologoPorId(turnoDTO.getOdontologoId());
+            if (odontologo.isPresent()) {
+                // Convertir TurnoDTO a Turno
+                Turno turnoActualizado = turnoService.turnodtoAturno(turnoDTO);
+                turnoActualizado.setOdontologo(odontologo.get());
+
+                // Actualizar el turno en la base de datos
+                turnoService.actualizarTurno(turnoDTO);
+
+                return ResponseEntity.ok("Turno actualizado correctamente");
+            } else {
+                return ResponseEntity.notFound().build(); // Odontologo no encontrado
+            }
+        } else {
+            return ResponseEntity.notFound().build(); // Turno no encontrado
+        }
     }
 }
